@@ -45,7 +45,7 @@ if __name__ == "__main__":
     # per line, the first word one the line is the label.
     train_data = load_file(train_file)
     test_data = load_file(test_file)
-    if(train_data["classes"] != test_data["classes"] or len(test_data["classes"]) != 2):
+    if(sorted(train_data["classes"]) != sorted(test_data["classes"]) or len(test_data["classes"]) != 2):
         raise Exception("Number of classes should be 2, and must be the same in test and training data")
 
     # make a copy of the test data without the correct labels, so the classifier can't cheat!
