@@ -6,6 +6,7 @@
 #
 
 import sys
+import math
 
 def load_file(filename):
     objects=[]
@@ -33,7 +34,52 @@ def load_file(filename):
 #
 def classifier(train_data, test_data):
     # This is just dummy code -- put yours here!
-    return [test_data["classes"][0]] * len(test_data["objects"])
+    truthful_words = {}
+    deceptive_words = {}
+    truthful_words_count = 0
+    deceptive_words_count = 0
+    truthful_sentences_count = 0
+    deceptive_sentences_count = 0
+    m = 0.1
+    for sentence in range(len(train_data["objects"])):
+        if train_data["labels"][sentence] == "truthful":
+            truthful_sentences_count += 1
+            for word in train_data["objects"][sentence].split(" "):
+                truthful_words_count += 1
+                if word in truthful_words:
+                    truthful_words[word] += 1
+                else:
+                    truthful_words[word] = 1
+        else:
+            deceptive_sentences_count += 1
+            for word in train_data["objects"][sentence].split(" "):
+                deceptive_words_count += 1
+                if word in deceptive_words:
+                    deceptive_words[word] += 1
+                else:
+                    deceptive_words[word] = 1
+
+    predicted_labels = []
+    for sentence in test_data["objects"]:
+        Prob_of_truthful_given_sentence = math.log(truthful_sentences_count/(truthful_sentences_count + deceptive_sentences_count))
+        Prob_of_deceptive_given_sentence = math.log(deceptive_sentences_count/(truthful_sentences_count + deceptive_sentences_count))
+        for word in sentence.split(" "):
+            if word not in truthful_words:
+                Prob_of_truthful_given_sentence += math.log(m/(truthful_words_count + m*len(truthful_words)))
+            else:
+                Prob_of_truthful_given_sentence += math.log((m+truthful_words[word])/(truthful_words_count + m*len(truthful_words)))
+            
+            if word not in deceptive_words:
+                Prob_of_deceptive_given_sentence += math.log(m/(deceptive_words_count + m*len(deceptive_words)))
+            else:
+                Prob_of_deceptive_given_sentence += math.log((m+deceptive_words[word])/(deceptive_words_count + m*len(deceptive_words)))
+
+        if Prob_of_truthful_given_sentence > Prob_of_deceptive_given_sentence:
+            predicted_labels.append("truthful")
+        else:
+            predicted_labels.append("deceptive")
+                    
+    return predicted_labels
 
 
 if __name__ == "__main__":
