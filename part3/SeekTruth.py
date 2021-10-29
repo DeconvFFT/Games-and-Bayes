@@ -19,6 +19,10 @@ def load_file(filename):
 
     return {"objects": objects, "labels": labels, "classes": list(set(labels))}
 
+
+def pre_processing():
+    pass
+
 # classifier : Train and apply a bayes net classifier
 #
 # This function should take a train_data dictionary that has three entries:
@@ -42,7 +46,7 @@ def classifier(train_data, test_data):
     deceptive_sentences_count = 0
     m = 0.1
     for sentence in range(len(train_data["objects"])):
-        if train_data["labels"][sentence] == "truthful":
+        if train_data["labels"][sentence] == train_data["classes"][0]:
             truthful_sentences_count += 1
             for word in train_data["objects"][sentence].split(" "):
                 truthful_words_count += 1
@@ -75,9 +79,9 @@ def classifier(train_data, test_data):
                 Prob_of_deceptive_given_sentence += math.log((m+deceptive_words[word])/(deceptive_words_count + m*len(deceptive_words)))
 
         if Prob_of_truthful_given_sentence > Prob_of_deceptive_given_sentence:
-            predicted_labels.append("truthful")
+            predicted_labels.append(train_data["classes"][0])
         else:
-            predicted_labels.append("deceptive")
+            predicted_labels.append(train_data["classes"][1])
                     
     return predicted_labels
 
