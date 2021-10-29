@@ -20,8 +20,15 @@ def load_file(filename):
     return {"objects": objects, "labels": labels, "classes": list(set(labels))}
 
 
-def pre_processing():
-    pass
+def pre_processing(data):
+    punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+    for sentence in range(len(data["objects"])):
+        new_sentence = ""
+        for c in data["objects"][sentence]:
+            if c not in punctuations:
+                new_sentence = new_sentence + c
+        data["objects"][sentence] = new_sentence
+    return data
 
 # classifier : Train and apply a bayes net classifier
 #
@@ -44,6 +51,8 @@ def classifier(train_data, test_data):
     deceptive_words_count = 0
     truthful_sentences_count = 0
     deceptive_sentences_count = 0
+    train_data = pre_processing(train_data)
+    test_data = pre_processing(test_data)
     m = 0.1
     for sentence in range(len(train_data["objects"])):
         if train_data["labels"][sentence] == train_data["classes"][0]:
