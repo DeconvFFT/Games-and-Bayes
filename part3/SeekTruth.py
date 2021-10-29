@@ -53,7 +53,7 @@ def classifier(train_data, test_data):
     deceptive_sentences_count = 0
     train_data = pre_processing(train_data)
     test_data = pre_processing(test_data)
-    m = 0.1
+    m = 0.5
     for sentence in range(len(train_data["objects"])):
         if train_data["labels"][sentence] == train_data["classes"][0]:
             truthful_sentences_count += 1
