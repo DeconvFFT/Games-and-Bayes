@@ -25,7 +25,6 @@ class QuintrisGame:
     self.state = ([ " " * QuintrisGame.BOARD_WIDTH ] * QuintrisGame.BOARD_HEIGHT, 0)
     self.piece_dist = [ [i,] * random.randint(0, 10) for i in range(0, len(QuintrisGame.PIECES) ) ]
     self.piece_dist = [ i for m in self.piece_dist for i in m ]
-    print(self.piece_dist)
     self.next_piece = None
     self.new_piece()
     
@@ -80,6 +79,7 @@ class QuintrisGame:
   def move(self, col_offset, new_piece):
     new_col = max(0, min(QuintrisGame.BOARD_WIDTH - len(self.piece[0]), self.col + col_offset))
     (self.piece, self.col) = (new_piece, new_col) if not QuintrisGame.check_collision(*self.state, new_piece, self.row, new_col) else (self.piece, self.col)
+    print(f'(self.piece, self.col): {(self.piece, self.col)}')
 
   def finish(self):
       self.state = QuintrisGame.remove_complete_lines( *QuintrisGame.place_piece(*self.state, self.piece, self.row, self.col) )      
@@ -108,7 +108,7 @@ class QuintrisGame:
   # move piece left, if possible, else do nothing
   def left(self):
     self.move(-1, self.piece)
-
+    
   # move piece right, if possible, else do nothing
   def right(self):
     self.move(1, self.piece)
@@ -134,8 +134,8 @@ class QuintrisGame:
     return self.state[0]
 
   # return current score
-  def get_score(eslf):
-    return self.score
+  def get_score(self):
+    return self.state[1]
 
   # return currently-falling piece, and its current row and column on the board
   def get_piece(self):
