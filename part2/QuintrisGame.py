@@ -79,7 +79,7 @@ class QuintrisGame:
   def move(self, col_offset, new_piece):
     new_col = max(0, min(QuintrisGame.BOARD_WIDTH - len(self.piece[0]), self.col + col_offset))
     (self.piece, self.col) = (new_piece, new_col) if not QuintrisGame.check_collision(*self.state, new_piece, self.row, new_col) else (self.piece, self.col)
-    print(f'(self.piece, self.col): {(self.piece, self.col)}')
+    #print(f'(self.piece, self.col): {(self.piece, self.col)}')
 
   def finish(self):
       self.state = QuintrisGame.remove_complete_lines( *QuintrisGame.place_piece(*self.state, self.piece, self.row, self.col) )      

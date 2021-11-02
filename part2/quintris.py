@@ -14,18 +14,17 @@ class HumanPlayer:
         print("Type a sequence of moves using: \n  b for move left \n  m for move right \n  n for rotation\n  h for horizontal flip\nThen press enter. E.g.: bbbnn\n")
         moves = input()
         print(f' printing board before the  moves')
-        #generate_successors(quintris)
-        #pieces = [ [ " x ", "xxx", " x "], [ "xxxxx" ], [ "xxxx", "   x" ], [ "xxxx", "  x " ], [ "xxx", "x x"], [ "xxx ", "  xx" ] ]
-
-        #probs = generate_prob(quintris)
+       
         succ, probs = generate_successors(quintris)
         Ex = 0
         print(f'probs: {probs}')
         for shat in succ:
-            piece = str(shat[0].get_piece()[0])
-            print(f'piece: {piece}')
-            Ex+=probs[piece]*shat[2]
-        print(f'Expectation: {Ex}')
+            #piece = str(shat[0].get_piece()[0])
+            print(f'shat: {shat[0].get_piece()}, move: {shat[1]}')
+            #Ex+=probs[piece]*shat[2]
+        #print(f'Expectation: {Ex}')
+
+        #expectimax(quintris, 1,False)
         quintris.print_board(False)
 
 
@@ -51,7 +50,7 @@ class HumanPlayer:
 def generate_prob(quintris):
     pieces = []
     probs = {}
-    pieces.append(str(quintris.get_piece()[0]))
+    #pieces.append(str(quintris.get_piece()[0]))
     quintris1 = deepcopy(quintris)
 
     for _ in range(3):
@@ -80,42 +79,130 @@ def generate_prob(quintris):
 def generate_successors(quintris):
     succ = []
     probs = {}
-    moves = ['b','m','h','n']
-    count =0
-    for m in moves:
-        quintris1 = deepcopy(quintris)
-        
-        if m == "b":
-            quintris1.left()
+    count = 0
+    col = quintris.get_piece()[2]
+    print(f'quintris.get_piece(): {quintris.get_piece()}')
+    
+    quintris1 = deepcopy(quintris)
+    for i in range(0,col):
+        quintris1 = deepcopy(quintris1)
 
-        elif m == "m":
+        quintris1.left()
+        move_str = "b"*(i+1)
+        #val = heuristic(quintris1)
+        succ.append((quintris1, move_str))
+
+    quintris1 = deepcopy(quintris)
+    for i in range(col, len(quintris1.get_board()[0])):
+        quintris1 = deepcopy(quintris1)
+        p = quintris1.get_piece()[0]
+        maxlen = max([len(x) for x in p])
+
+        if (i<len(quintris1.get_board()[0]) - maxlen):
             quintris1.right()
 
-        elif m == "h":
-            quintris1.hflip()
+            move_str = "m"* (i-col+1)
+            #val = heuristic(quintris1)
+            succ.append((quintris1, move_str))
+    
 
-        elif m == "n":
+        
+    
+
+
+    prev_succ = deepcopy(succ)
+    for shat in prev_succ:
+        quintris1 = deepcopy(shat[0])
+        
+        for i in range(3):
+        #quintris1 = deepcopy(quintris1)
             quintris1.rotate()
-        p = str(quintris1.get_piece()[0])
+            #val = heuristic(quintris1)
+            move_str = shat[1]+"n"*(i+1)
+            print(f'move_str: {move_str}')
+            succ.append((quintris1,move_str))
 
-        if p in succ:
+        quintris1 = deepcopy(shat[0])
+        quintris1.hflip()
+        #val = heuristic(quintris1)
+        succ.append((quintris1,"h"))
+
+        for i in range(3):
+            #quintris1 = deepcopy(quintris1)
+            quintris1.rotate()
+            #val = heuristic(quintris1)
+            move_str =  shat[1]+"n"*(i+1)
+            succ.append((quintris1,move_str))
+
+    quintris1 = deepcopy(quintris)
+
+    for i in range(3):
+        #quintris1 = deepcopy(quintris1)
+        quintris1.rotate()
+        #val = heuristic(quintris1)
+        move_str = "n"*(i+1)
+        succ.append((quintris1,move_str))
+
+    quintris1 = deepcopy(quintris)
+    quintris1.hflip()
+    #val = heuristic(quintris1)
+    succ.append((quintris1,"h"))
+
+    for i in range(3):
+        #quintris1 = deepcopy(quintris1)
+        quintris1.rotate()
+        #val = heuristic(quintris1)
+        move_str = "n"*(i+1)
+        succ.append((quintris1,move_str))
+    print(f'len(succ)L {len(succ)}')
+    for shat in succ:
+        p = str(shat[0].get_piece()[0])
+        print(p)
+        if p in probs:
             probs[p]+=1
         else:
             probs[p] = 1
-        
-        #quintris1.down()
-        # quintris1.print_board(False)
-        score = heuristic(quintris1)
-        succ.append((quintris1, m,score))
-        count+=1
-        # replist = [x for x in succ if x[1]==quintris1]
-        # if len(replist)==0:
-        #     succ.append((m,quintris1))
+
     for p in probs.keys():
-        probs[p]/=count
-    for shat in succ:
-        print(f'successor: {shat[0].get_piece(),shat[1], shat[2]}')
-    print(len(succ))
+        probs[p]/=len(succ)
+
+    # moves = ['b','m','h','n']
+    # count =0
+    # print(f'quintris: {quintris}')
+    # for m in moves:
+    #     quintris1 = deepcopy(quintris)
+        
+    #     if m == "b":
+    #         quintris1.left()
+
+    #     elif m == "m":
+    #         quintris1.right()
+
+    #     elif m == "h":
+    #         quintris1.hflip()
+
+    #     elif m == "n":
+    #         quintris1.rotate()
+    #     p = str(quintris1.get_piece()[0])
+
+    #     if p in succ:
+    #         probs[p]+=1
+    #     else:
+    #         probs[p] = 1
+        
+    #     #quintris1.down()
+    #     # quintris1.print_board(False)
+    #     score = heuristic(quintris1)
+    #     succ.append((quintris1, m,score))
+    #     count+=1
+    #     # replist = [x for x in succ if x[1]==quintris1]
+    #     # if len(replist)==0:
+    #     #     succ.append((m,quintris1))
+    # for p in probs.keys():
+    #     probs[p]/=count
+    # for shat in succ:
+    #     print(f'successor: {shat[0].get_piece(),shat[1], shat[2]}')
+    # print(len(succ))
     return succ,probs
         
 # def max_value(quintris, alpha, beta):
@@ -134,30 +221,60 @@ def generate_successors(quintris):
 
 
 # def terminal(quintris):
-#     QuintrisGame.check_collision(quintris.get_state(), )
-def minimax(quintris, depth, alpha, beta, max_player):
-    # if depth ==0 or terminal(quintris):
-    #     return heuristic(quintris)
+#     return QuintrisGame.check_collision(*quintris.state,quintris.get_piece()[0], quintris.get_piece()[1],quintris.get_piece()[2])
+
+
+def expectimax(quintris, depth, max_player):
+    if depth ==0: #or terminal(quintris):
+        return heuristic(quintris)
     
     if max_player:
-        max_eval = -np.Infinity()
-        for shat in generate_successors(quintris):
-            eval = minimax(shat, depth-1, alpha, beta, False)
+        max_eval = -np.Infinity
+        succ, _ = generate_successors(quintris)
+        for shat in succ:
+            eval = expectimax(shat[0], depth-1,False)
             max_eval = max(max_eval, eval)
-            alpha = max(alpha, eval)
-            if beta <= alpha:
-                break
+            print(f'max_eval:{max_eval}, "depth:{depth}')
         return max_eval
+
+    # add a max layer for next tile
     
     else:
-        min_eval = np.Infinity()
-        for shat in generate_successors(quintris):
-            eval = minimax(shat, depth-1, alpha, beta, True)
-            min_eval = min(min_eval, eval)
-            beta = min(beta, eval)
-            if beta <= alpha:
-                break
-        return min_eval
+        # calculate chance layer using 6 shapes
+        Ex = 0
+        succ, probs = generate_successors(quintris)
+        for shat in succ:
+            piece = str(shat[0].get_piece()[0])
+
+            Ex+= probs[piece]*expectimax(shat[0], depth,True)
+            print(f'Ex:{Ex}, "depth:{depth}')
+
+        return Ex
+
+# def minimax(quintris, depth, alpha, beta, max_player):
+
+#     if depth ==0 or terminal(quintris):
+#         return heuristic(quintris)
+    
+#     if max_player:
+#         max_eval = -np.Infinity
+#         for shat in generate_successors(quintris):
+#             eval = minimax(shat, depth-1, alpha, beta, False)
+#             max_eval = max(max_eval, eval)
+#             alpha = max(alpha, eval)
+#             if beta <= alpha:
+#                 break
+#         return max_eval
+    
+#     else:
+#         min_eval = np.Infinity()
+#         for shat in generate_successors(quintris):
+#             eval = minimax(shat, depth-1, alpha, beta, True)
+#             min_eval = min(min_eval, eval)
+#             beta = min(beta, eval)
+#             if beta <= alpha:
+#                 break
+#         return min_eval
 
 
 
