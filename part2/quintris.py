@@ -5,18 +5,413 @@ from AnimatedQuintris import *
 from SimpleQuintris import *
 from kbinput import *
 import time, sys
+from copy import deepcopy
+import numpy as np
+from collections import defaultdict
 
 class HumanPlayer:
     def get_moves(self, quintris):
         print("Type a sequence of moves using: \n  b for move left \n  m for move right \n  n for rotation\n  h for horizontal flip\nThen press enter. E.g.: bbbnn\n")
         moves = input()
+        print(f' printing board before the  moves')
+       
+        succ, probs = generate_successors(quintris)
+        Ex = 0
+        print(f'probs: {probs}')
+        for shat in succ:
+            #piece = str(shat[0].get_piece()[0])
+            print(f'shat: {shat[0].get_piece()}, move: {shat[1]}')
+            #Ex+=probs[piece]*shat[2]
+        #print(f'Expectation: {Ex}')
+
+        #expectimax(quintris, 1,False)
+        quintris.print_board(False)
+
+
+
         return moves
 
     def control_game(self, quintris):
         while 1:
             c = get_char_keyboard()
             commands =  { "b": quintris.left, "h": quintris.hflip, "n": quintris.rotate, "m": quintris.right, " ": quintris.down }
+            
             commands[c]()
+
+# def generate_prob(quintris):
+#     succ_list = []
+#     #quintris.place_piece(piece)
+#     probs = new_pieces_prob(quintris)
+#     print(f'probs: {probs}')
+#     pass    
+# 
+
+# generate a probability distribution for successors    
+def generate_prob(quintris):
+    pieces = []
+    probs = {}
+    #pieces.append(str(quintris.get_piece()[0]))
+    quintris1 = deepcopy(quintris)
+
+    for _ in range(3):
+        #quintris1 = deepcopy(quintris1)
+        quintris1.rotate()
+        pieces.append(str(quintris1.get_piece()[0]))
+    quintris1 = deepcopy(quintris)
+    quintris1.hflip()
+    pieces.append(str(quintris1.get_piece()[0]))
+
+    for _ in range(3):
+        quintris1 = deepcopy(quintris1)
+        quintris1.rotate()
+        pieces.append(str(quintris1.get_piece()[0]))
+
+    for p in pieces:
+        if p in probs:
+            probs[p]+=1
+        else:
+            probs[p] = 1
+    for p in probs.keys():
+        probs[p]/=len(pieces)
+
+    return probs
+
+def generate_successors(quintris):
+    succ = []
+    probs = {}
+    count = 0
+    col = quintris.get_piece()[2]
+    print(f'quintris.get_piece(): {quintris.get_piece()}')
+    
+    quintris1 = deepcopy(quintris)
+    for i in range(0,col):
+        quintris1 = deepcopy(quintris1)
+
+        quintris1.left()
+        move_str = "b"*(i+1)
+        #val = heuristic(quintris1)
+        succ.append((quintris1, move_str))
+
+    quintris1 = deepcopy(quintris)
+    for i in range(col, len(quintris1.get_board()[0])):
+        quintris1 = deepcopy(quintris1)
+        p = quintris1.get_piece()[0]
+        maxlen = max([len(x) for x in p])
+
+        if (i<len(quintris1.get_board()[0]) - maxlen):
+            quintris1.right()
+
+            move_str = "m"* (i-col+1)
+            #val = heuristic(quintris1)
+            succ.append((quintris1, move_str))
+    
+
+        
+    
+
+
+    prev_succ = deepcopy(succ)
+    for shat in prev_succ:
+        quintris1 = deepcopy(shat[0])
+        
+        for i in range(3):
+        #quintris1 = deepcopy(quintris1)
+            quintris1.rotate()
+            #val = heuristic(quintris1)
+            move_str = shat[1]+"n"*(i+1)
+            print(f'move_str: {move_str}')
+            succ.append((quintris1,move_str))
+
+        quintris1 = deepcopy(shat[0])
+        quintris1.hflip()
+        #val = heuristic(quintris1)
+        succ.append((quintris1,"h"))
+
+        for i in range(3):
+            #quintris1 = deepcopy(quintris1)
+            quintris1.rotate()
+            #val = heuristic(quintris1)
+            move_str =  shat[1]+"n"*(i+1)
+            succ.append((quintris1,move_str))
+
+    quintris1 = deepcopy(quintris)
+
+    for i in range(3):
+        #quintris1 = deepcopy(quintris1)
+        quintris1.rotate()
+        #val = heuristic(quintris1)
+        move_str = "n"*(i+1)
+        succ.append((quintris1,move_str))
+
+    quintris1 = deepcopy(quintris)
+    quintris1.hflip()
+    #val = heuristic(quintris1)
+    succ.append((quintris1,"h"))
+
+    for i in range(3):
+        #quintris1 = deepcopy(quintris1)
+        quintris1.rotate()
+        #val = heuristic(quintris1)
+        move_str = "n"*(i+1)
+        succ.append((quintris1,move_str))
+    print(f'len(succ)L {len(succ)}')
+    for shat in succ:
+        p = str(shat[0].get_piece()[0])
+        print(p)
+        if p in probs:
+            probs[p]+=1
+        else:
+            probs[p] = 1
+
+    for p in probs.keys():
+        probs[p]/=len(succ)
+
+    # moves = ['b','m','h','n']
+    # count =0
+    # print(f'quintris: {quintris}')
+    # for m in moves:
+    #     quintris1 = deepcopy(quintris)
+        
+    #     if m == "b":
+    #         quintris1.left()
+
+    #     elif m == "m":
+    #         quintris1.right()
+
+    #     elif m == "h":
+    #         quintris1.hflip()
+
+    #     elif m == "n":
+    #         quintris1.rotate()
+    #     p = str(quintris1.get_piece()[0])
+
+    #     if p in succ:
+    #         probs[p]+=1
+    #     else:
+    #         probs[p] = 1
+        
+    #     #quintris1.down()
+    #     # quintris1.print_board(False)
+    #     score = heuristic(quintris1)
+    #     succ.append((quintris1, m,score))
+    #     count+=1
+    #     # replist = [x for x in succ if x[1]==quintris1]
+    #     # if len(replist)==0:
+    #     #     succ.append((m,quintris1))
+    # for p in probs.keys():
+    #     probs[p]/=count
+    # for shat in succ:
+    #     print(f'successor: {shat[0].get_piece(),shat[1], shat[2]}')
+    # print(len(succ))
+    return succ,probs
+        
+# def max_value(quintris, alpha, beta):
+#     for shat in generate_successors(quintris):
+#         alpha =  max(alpha, (min_value(shat, alpha, beta)))
+#         if alpha >= beta:
+#             return alpha
+#     return alpha
+
+# def min_value(quintris, alpha, beta):
+#     for shat in generate_successors(quintris):
+#         beta =  min(alpha, (max_value(shat, alpha, beta)))
+#         if beta <= alpha:
+#             return beta
+#     return beta
+
+
+# def terminal(quintris):
+#     return QuintrisGame.check_collision(*quintris.state,quintris.get_piece()[0], quintris.get_piece()[1],quintris.get_piece()[2])
+
+
+def expectimax(quintris, depth, max_player):
+    if depth ==0: #or terminal(quintris):
+        return heuristic(quintris)
+    
+    if max_player:
+        max_eval = -np.Infinity
+        succ, _ = generate_successors(quintris)
+        for shat in succ:
+            eval = expectimax(shat[0], depth-1,False)
+            max_eval = max(max_eval, eval)
+            print(f'max_eval:{max_eval}, "depth:{depth}')
+        return max_eval
+
+    # add a max layer for next tile
+    
+    else:
+        # calculate chance layer using 6 shapes
+        Ex = 0
+        succ, probs = generate_successors(quintris)
+        for shat in succ:
+            piece = str(shat[0].get_piece()[0])
+
+            Ex+= probs[piece]*expectimax(shat[0], depth,True)
+            print(f'Ex:{Ex}, "depth:{depth}')
+
+        return Ex
+
+# def minimax(quintris, depth, alpha, beta, max_player):
+
+#     if depth ==0 or terminal(quintris):
+#         return heuristic(quintris)
+    
+#     if max_player:
+#         max_eval = -np.Infinity
+#         for shat in generate_successors(quintris):
+#             eval = minimax(shat, depth-1, alpha, beta, False)
+#             max_eval = max(max_eval, eval)
+#             alpha = max(alpha, eval)
+#             if beta <= alpha:
+#                 break
+#         return max_eval
+    
+#     else:
+#         min_eval = np.Infinity()
+#         for shat in generate_successors(quintris):
+#             eval = minimax(shat, depth-1, alpha, beta, True)
+#             min_eval = min(min_eval, eval)
+#             beta = min(beta, eval)
+#             if beta <= alpha:
+#                 break
+#         return min_eval
+
+
+
+def convert_board(board):
+    a = np.empty((25, 15), dtype='U1')
+    for r in range(len(board)):
+        innerl = [" "]* 15
+        for c in range(len(board[0])):
+            innerl[c] = board[r][c]
+        a[r] = innerl
+    return np.array(a)
+
+# get column heights:
+def get_col_heights(board):
+    # initializing col heights
+    board_array = convert_board(board)
+    print(f'board_array: {board_array}')
+    col_heights = []    
+    for col in range(board_array.shape[1]):
+        if "x" in board_array[:,col]:
+            # column height would be nrows-max index at which x is at that column.
+            # Because, we are placing the tetris on the bottom of the board.
+            col_height = board_array.shape[0] - np.min(np.where(board_array[:,col] == "x"))
+            col_heights.append(col_height)
+        else:
+            col_heights.append(0)
+            
+    return np.array(col_heights)
+
+
+# get column holes
+def get_col_holes(board, col_heights):
+    # initializing col heights
+    board_array = convert_board(board)
+    col_holes = []  
+    for c in range(board_array.shape[1]):
+        i = len(board) - col_heights[c]
+        if i ==0:
+            col_holes.append(0)
+        else:
+            col_holes.append(np.count_nonzero(board_array[i:, c] !="x"))
+    print(f'col_holes: {col_holes}')
+    return col_holes
+
+
+# get total number of lines cleared
+def get_lines_cleared(board):
+    board = convert_board(board)
+    complete = [i for i in range(board.shape[0]) if np.sum(board[i,:] == " ") == 0]
+    return len(complete)
+
+
+# returns the total transitions possible in a column
+# column transition is an empty cell adjacent to a "x" in the same column
+
+def get_column_transitions(board, col_heights):
+    total = 0
+    board = convert_board(board)
+    for col in range(len(col_heights)):
+        # if the column is empty or has "x" only on the bottom of the board
+        if col_heights[col]<=1:
+            continue
+        else:
+            # column transitions possible for cells  with more than 1 "x" and it's neighbours are empty
+            for row in range(board.shape[0] - col_heights[col], board.shape[0]-1):
+                if board[row][col] != board[row+1][col]:
+                    total+=1
+    return total
+
+# returns the total transitions possible in a column
+# column transition is an empty cell adjacent to a "x" in the same column
+def get_row_transitions(board, max_col_height):
+    total = 0
+    board = convert_board(board)
+
+    for row in range(board.shape[0]-max_col_height, board.shape[0]):
+        for col in range(0, board.shape[1]-1):
+            if board[row][col] != board[row][col+1]:
+                total+=1
+    return total
+
+# it is how smoooth the tetris board is
+# It measures the difference between consecutive column heights in the board
+def get_wavyness(col_heights):
+    bump =0
+    for i in range(len(col_heights)-1):
+        bump+=abs(col_heights[i+1]-col_heights[i])
+    return bump        
+
+
+## checks how many empty columns are available in the board
+def get_empty_cols(board):
+    board = convert_board(board)
+    empty_cols = np.count_nonzero(np.count_nonzero(board == "x", axis=0) ==0)
+    return empty_cols
+
+def evaluate():
+    pass
+
+def heuristic(quintris):
+    #lines_cleared+total_height+sum_diff_col_heights+holes
+    ### Evaluations ###
+    # Referred to this article for heuristic functions: https://meatfighter.com/nintendotetrisai/#Java_Version
+    # column heights
+
+    col_heights = get_col_heights(quintris.get_board())
+    print(f'col heights: {col_heights}')
+    max_height = np.max(col_heights)
+    print(f'max height: {max_height}')
+    
+    # total column height
+    total_col_height = np.sum(col_heights)
+    
+    # get holes by column
+    col_holes = get_col_holes(quintris.get_board(), col_heights)
+
+    total_holes = np.sum(col_holes)
+
+    ## get board wavyness
+    wavyness = get_wavyness(col_heights)
+    print(f'wavyness: {wavyness}')
+
+    total_lines_cleared = get_lines_cleared(quintris.get_board())
+
+    print(f'total_lines_cleared: {total_lines_cleared}')
+
+    row_transitions = get_row_transitions(quintris.get_board(), max_height)
+    print(f'row_transitions: {row_transitions}')
+
+    col_transitions = get_column_transitions(quintris.get_board(), col_heights)
+    print(f'col_transitions: {col_transitions}')
+
+    empty_cols = get_empty_cols(quintris.get_board())
+    print(f'empty_cols: {empty_cols}')
+
+    # row_transitions, col_transitions,
+    return -0.510066*total_col_height+ 0.760666*total_lines_cleared+ -0.35663*total_holes+ 0.32*empty_cols+-0.184483*wavyness
 
 #####
 # This is the part you'll want to modify!
@@ -35,7 +430,17 @@ class ComputerPlayer:
     #
     def get_moves(self, quintris):
         # super simple current algorithm: just randomly move left, right, and rotate a few times
-        return random.choice("mnbh") * random.randint(1, 10)
+        c = random.choice("mnbh")
+        # print(f'max piece: {quintris.get_piece()} move: {c}')
+        # print(f'Printing max successors.....')
+        # max_successor = generate_successors(quintris)
+        # print(f'min piece: {quintris.get_next_piece()} move: {c}')
+
+        # print(f'Printing min successors.....')
+        # quintris.place_piece(quintris.get_next_piece())
+        # min_successors = generate_successors(moves,quintris, "max")
+        #pass
+        return c * random.randint(1, 10)
        
     # This is the version that's used by the animted version. This is really similar to get_moves,
     # except that it runs as a separate thread and you should access various methods and data in
