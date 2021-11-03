@@ -53,11 +53,14 @@ def classifier(train_data, test_data):
     deceptive_sentences_count = 0
     train_data = pre_processing(train_data)
     test_data = pre_processing(test_data)
+    all_unique_words = []
     m = 0.5
     for sentence in range(len(train_data["objects"])):
         if train_data["labels"][sentence] == train_data["classes"][0]:
             truthful_sentences_count += 1
             for word in train_data["objects"][sentence].split(" "):
+                if word not in all_unique_words:
+                    all_unique_words.append(word)
                 truthful_words_count += 1
                 if word in truthful_words:
                     truthful_words[word] += 1
@@ -66,6 +69,8 @@ def classifier(train_data, test_data):
         else:
             deceptive_sentences_count += 1
             for word in train_data["objects"][sentence].split(" "):
+                if word not in all_unique_words:
+                    all_unique_words.append(word)
                 deceptive_words_count += 1
                 if word in deceptive_words:
                     deceptive_words[word] += 1
@@ -78,9 +83,9 @@ def classifier(train_data, test_data):
         Prob_of_deceptive_given_sentence = math.log(deceptive_sentences_count/(truthful_sentences_count + deceptive_sentences_count))
         for word in sentence.split(" "):
             if word not in truthful_words:
-                Prob_of_truthful_given_sentence += math.log(m/(truthful_words_count + m*len(truthful_words)))
+                Prob_of_truthful_given_sentence += math.log(m/(truthful_words_count + m*len(all_unique_words)))
             else:
-                Prob_of_truthful_given_sentence += math.log((m+truthful_words[word])/(truthful_words_count + m*len(truthful_words)))
+                Prob_of_truthful_given_sentence += math.log((m+truthful_words[word])/(truthful_words_count + m*len(all_unique_words)))
             
             if word not in deceptive_words:
                 Prob_of_deceptive_given_sentence += math.log(m/(deceptive_words_count + m*len(deceptive_words)))
