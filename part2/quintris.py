@@ -10,6 +10,7 @@ import numpy as np
 from collections import defaultdict
 
 class HumanPlayer:
+    
     def get_moves(self, quintris):
         print("Type a sequence of moves using: \n  b for move left \n  m for move right \n  n for rotation\n  h for horizontal flip\nThen press enter. E.g.: bbbnn\n")
         moves = input()
@@ -24,7 +25,14 @@ class HumanPlayer:
             #Ex+=probs[piece]*shat[2]
         #print(f'Expectation: {Ex}')
 
-        #expectimax(quintris, 1,False)
+        pieces = [ [ " x ", "xxx", " x "], [ "xxxxx" ], [ "xxxx", "   x" ], [ "xxxx", "  x " ], [ "xxx", "x x"], [ "xxx ", "  xx" ] ]
+
+        for p in pieces: 
+            quintris1 = deepcopy(quintris)
+            board,score = quintris1.place_piece(quintris1.get_board(),0, p, 0,7)
+            print(f'piece: {p}, board: {board}')
+            quintris1.state = board, score
+            expectimax(quintris1,board)
         quintris.print_board(False)
 
 
@@ -81,7 +89,7 @@ def generate_successors(quintris):
     probs = {}
     count = 0
     col = quintris.get_piece()[2]
-    print(f'quintris.get_piece(): {quintris.get_piece()}')
+    #print(f'quintris.get_piece(): {quintris.get_piece()}')
     
     quintris1 = deepcopy(quintris)
     for i in range(0,col):
@@ -119,7 +127,7 @@ def generate_successors(quintris):
             quintris1.rotate()
             #val = heuristic(quintris1)
             move_str = shat[1]+"n"*(i+1)
-            print(f'move_str: {move_str}')
+            #print(f'move_str: {move_str}')
             succ.append((quintris1,move_str))
 
         quintris1 = deepcopy(shat[0])
@@ -154,10 +162,10 @@ def generate_successors(quintris):
         #val = heuristic(quintris1)
         move_str = "n"*(i+1)
         succ.append((quintris1,move_str))
-    print(f'len(succ)L {len(succ)}')
+    #print(f'len(succ)L {len(succ)}')
     for shat in succ:
         p = str(shat[0].get_piece()[0])
-        print(p)
+       # print(p)
         if p in probs:
             probs[p]+=1
         else:
@@ -224,32 +232,70 @@ def generate_successors(quintris):
 #     return QuintrisGame.check_collision(*quintris.state,quintris.get_piece()[0], quintris.get_piece()[1],quintris.get_piece()[2])
 
 
-def expectimax(quintris, depth, max_player):
-    if depth ==0: #or terminal(quintris):
-        return heuristic(quintris)
+# def maximax(qunitris, depth, player):
+#     if player == "max":
+#         max_eval = -np.Infinity
+#         succ, _ = generate_successors(quintris)
+#         for shat in succ:
+#             eval = expectimax(shat[0], depth-1,"chance")
+#             max_eval = max(max_eval, eval)board_array
+#             print(f'max_eval:{max_eval}, "depth:{depth}')
+#         return max_eval
+
+#     # add a max layer for next tile
+#     elif player == "next_max":
+#         max_eval = -np.Infinity
+#         succ, _ = generate_successors(quintris)
+#         for shat in succ:
+#             eval = expectimax(shat[0], depth-1,"chance")
+#             max_eval = max(max_eval, eval)
+#             print(f'max_eval:{max_eval}, "depth:{depth}')
+#         return max_eval
+#     pass
+
+def expectimax(quintris, board):
+    # if depth ==0: #or terminal(quintris):
+    #     return heuristic(quintris)
     
-    if max_player:
-        max_eval = -np.Infinity
-        succ, _ = generate_successors(quintris)
-        for shat in succ:
-            eval = expectimax(shat[0], depth-1,False)
-            max_eval = max(max_eval, eval)
-            print(f'max_eval:{max_eval}, "depth:{depth}')
-        return max_eval
+    # if player == "max":
+    #     max_eval = -np.Infinity
+    #     succ, _ = generate_successors(quintris)
+    #     for shat in succ:
+    #         eval = expectimax(shat[0], depth-1,"chance")
+    #         max_eval = max(max_eval, eval)
+    #         print(f'max_eval:{max_eval}, "depth:{depth}')
+    #     return max_eval
 
-    # add a max layer for next tile
-    
-    else:
-        # calculate chance layer using 6 shapes
-        Ex = 0
-        succ, probs = generate_successors(quintris)
-        for shat in succ:
-            piece = str(shat[0].get_piece()[0])
+    # else:
+    #     # calculate chance layer using 6 shapes
+    #     Ex = 0
+    #     succ, probs = generate_successors(quintris)
+    #     for shat in succ:
+    #         piece = str(shat[0].get_piece()[0])
+    #         Ex+= probs[piece]*expectimax(shat[0], depth,"max")
 
-            Ex+= probs[piece]*expectimax(shat[0], depth,True)
-            print(f'Ex:{Ex}, "depth:{depth}')
+    #         print(f'Ex:{Ex}, "depth:{depth}')
 
-        return Ex
+    #     return Ex
+
+    max_eval = -np.Infinity
+    max_prob = -np.Infinity
+    succ, probs = generate_successors(quintris)
+    quintris.print_board(False)
+    for shat in succ:
+        eval = heuristic(shat[0])
+        if eval > max_eval:
+            max_eval = eval
+            best_move = shat[1]
+            max_qunitris = quintris
+            max_prob = probs[str(shat[0].get_piece()[0])] 
+
+    # chance nodes one level up from the max node
+    Ex = max_prob*max_eval
+    print(f'max_eval:{max_eval}, "best_move:{best_move}, "max_prob:{max_prob}, Ex: {Ex}')
+
+    return Ex, best_move, max_qunitris
+
 
 # def minimax(quintris, depth, alpha, beta, max_player):
 
@@ -291,7 +337,7 @@ def convert_board(board):
 def get_col_heights(board):
     # initializing col heights
     board_array = convert_board(board)
-    print(f'board_array: {board_array}')
+    #print(f'board_array: {board_array}')
     col_heights = []    
     for col in range(board_array.shape[1]):
         if "x" in board_array[:,col]:
@@ -374,13 +420,13 @@ def get_empty_cols(board):
 def evaluate():
     pass
 
-def heuristic(quintris):
+def heuristic(qunitris):
     #lines_cleared+total_height+sum_diff_col_heights+holes
     ### Evaluations ###
     # Referred to this article for heuristic functions: https://meatfighter.com/nintendotetrisai/#Java_Version
     # column heights
 
-    col_heights = get_col_heights(quintris.get_board())
+    col_heights = get_col_heights(qunitris.get_board())
     print(f'col heights: {col_heights}')
     max_height = np.max(col_heights)
     print(f'max height: {max_height}')
@@ -389,7 +435,7 @@ def heuristic(quintris):
     total_col_height = np.sum(col_heights)
     
     # get holes by column
-    col_holes = get_col_holes(quintris.get_board(), col_heights)
+    col_holes = get_col_holes(qunitris.get_board(), col_heights)
 
     total_holes = np.sum(col_holes)
 
@@ -397,17 +443,17 @@ def heuristic(quintris):
     wavyness = get_wavyness(col_heights)
     print(f'wavyness: {wavyness}')
 
-    total_lines_cleared = get_lines_cleared(quintris.get_board())
+    total_lines_cleared = get_lines_cleared(qunitris.get_board())
 
     print(f'total_lines_cleared: {total_lines_cleared}')
 
-    row_transitions = get_row_transitions(quintris.get_board(), max_height)
+    row_transitions = get_row_transitions(qunitris.get_board(), max_height)
     print(f'row_transitions: {row_transitions}')
 
-    col_transitions = get_column_transitions(quintris.get_board(), col_heights)
+    col_transitions = get_column_transitions(qunitris.get_board(), col_heights)
     print(f'col_transitions: {col_transitions}')
 
-    empty_cols = get_empty_cols(quintris.get_board())
+    empty_cols = get_empty_cols(qunitris.get_board())
     print(f'empty_cols: {empty_cols}')
 
     # row_transitions, col_transitions,
@@ -473,7 +519,7 @@ class ComputerPlayer:
 #### main program
 
 (player_opt, interface_opt) = sys.argv[1:3]
-
+game_depth = 3
 try:
     if player_opt == "human":
         player = HumanPlayer()
