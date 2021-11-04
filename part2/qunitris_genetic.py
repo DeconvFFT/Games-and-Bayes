@@ -39,13 +39,13 @@ class HumanPlayer:
 
 
         #     shat[0].print_board(False)
-        
+        self.qlist = []
+        expectimax(self, quintris, 3, "max", 3)
+        print(f'best moves: {self.qlist}')
         #quintris.print_board(False)
 
-        best_move = 'b'
-        self.qlist = []
-        expectimax(self, quintris, 3, "max",best_move, 3)
-        print(f'best_move: {best_move}')
+
+
         return moves
 
     def control_game(self, quintris):
@@ -115,9 +115,8 @@ def generate_successors(quintris):
     probs = {}
     count = 0
     col = quintris.get_piece()[2]
-    # print(f'quintris.get_piece(): {quintris.get_piece()}')
-    # print(f'quintris.get_board(): {quintris.get_board()}')
-
+    #print(f'quintris.get_piece(): {quintris.get_piece()}')
+    
     quintris1 = deepcopy(quintris)
     for i in range(0,col):
         quintris1 = deepcopy(quintris1)
@@ -129,7 +128,7 @@ def generate_successors(quintris):
         #quintris1.down()
         #val = heuristic(quintris1)
         move_piece_down(quintris1)
-        #quintris1.print_board(False)
+
         succ.append((quintris1, move_str))
 
     quintris1 = deepcopy(quintris)
@@ -144,8 +143,6 @@ def generate_successors(quintris):
             move_str = "m"* (i-col+1)
             #val = heuristic(quintris1)
             move_piece_down(quintris1)
-           # quintris1.print_board(False)
-
             succ.append((quintris1, move_str))
     
 
@@ -165,15 +162,12 @@ def generate_successors(quintris):
             move_str = shat[1]+"n"*(i+1)
             #print(f'move_str: {move_str}')
             move_piece_down(quintris1)
-            #quintris1.print_board(False)
-
             succ.append((quintris1,move_str))
 
         quintris1 = deepcopy(shat[0])
         quintris1.hflip()
         #val = heuristic(quintris1)
         move_piece_down(quintris1)
-        #quintris1.print_board(False)
         succ.append((quintris1,"h"))
 
         for i in range(3):
@@ -183,7 +177,6 @@ def generate_successors(quintris):
             #val = heuristic(quintris1)
             move_str =  shat[1]+"n"*(i+1)
             move_piece_down(quintris1)
-            #quintris1.print_board(False)
             succ.append((quintris1,move_str))
 
     quintris1 = deepcopy(quintris)
@@ -196,25 +189,22 @@ def generate_successors(quintris):
         #val = heuristic(quintris1)
         move_str = "n"*(i+1)
         move_piece_down(quintris1)
-        #quintris1.print_board(False)
         succ.append((quintris1,move_str))
 
     quintris1 = deepcopy(quintris)
     quintris1.hflip()
     move_piece_down(quintris1)
-    #quintris1.print_board(False)
     #val = heuristic(quintris1)
     succ.append((quintris1,"h"))
 
     for i in range(3):
-        quintris1 = deepcopy(quintris1)
+        #quintris1 = deepcopy(quintris1)
         for _ in range(0,i):
                 quintris1.rotate()
         #quintris1.rotate()
         #val = heuristic(quintris1)
         move_str = "n"*(i+1)
         move_piece_down(quintris1)
-       # quintris1.print_board(False)
         succ.append((quintris1,move_str))
     #print(f'len(succ)L {len(succ)}')
     for shat in succ:
@@ -312,7 +302,9 @@ def generate_successors(quintris):
 #         return max_eval
 #     pass
 
-def expectimax(mode, quintris, depth, player,best_move, game_depth = 3):
+def expectimax(mode, quintris, depth, player, game_depth = 3):
+    best_move = 'b'
+
     if depth ==0: #or terminal(quintris):
         #print(f'end heuristic: {heuristic(quintris)}')
         return heuristic(quintris)
@@ -321,15 +313,13 @@ def expectimax(mode, quintris, depth, player,best_move, game_depth = 3):
         max_eval = -np.Infinity
         #print(f'Inside max..')
         #quintris.print_board(False)
-        if (depth == game_depth -1):
-                print(f'next\'s successor generation..')
+
         succ, _ = generate_successors(quintris)
-        #best_move = 'b'
         for quintris1,move in succ:
             # print('successor of max...')
             # if (depth == game_depth -1):
-            #     print(f'next\'s successor')
-            #     quintris1.print_board(False)
+            #     print("successor of next..")
+                
 
             # next_piece = shat[0].get_next_piece()
             # shat[0]
@@ -340,17 +330,15 @@ def expectimax(mode, quintris, depth, player,best_move, game_depth = 3):
 
             
             
-            eval = expectimax(mode,quintris1, depth-1,"chance", best_move,3)
-
+            eval = expectimax(mode,quintris1, depth-1,"chance", 3)
             if (eval >= max_eval):
                 best_move = move
-                max_eval = eval
+            max_eval = max(max_eval, eval)
             
+
         #quintris.print_board(False)
         mode.qlist.append((quintris, best_move, max_eval))
-
-        if (depth == game_depth):
-            print(f'max_value: {max_eval}, bestmove: {best_move}, depth:{depth}')
+        print(f'max_value: {max_eval}, bestmove: {best_move}, depth:{depth}')
 
         return max_eval
 
@@ -367,16 +355,12 @@ def expectimax(mode, quintris, depth, player,best_move, game_depth = 3):
             #print(f'successor of current ... ')
 
             quintris1 = deepcopy(quintris)
-            print(f'board before placing: {quintris.get_board()}' )
-            board,score = quintris1.place_piece(*quintris1.state, quintris.get_next_piece(), 0,0)
-            print(f'board after placing: {board}' )
-
-            #quintris1.piece = quintris.get_next_piece()
+            board,score = quintris1.place_piece(*quintris1.state, quintris1.get_next_piece(), 0,0)
             quintris1.state = board,score
             quintris1.print_board(False)
             #quintris.print_board(False)
 
-            Ex = 1*expectimax(mode,quintris1, depth,"max", best_move,3)
+            Ex = 1*expectimax(mode,quintris1, depth,"max", 3)
             #print(f'Ex for successor of current from next piece: {Ex}')
             return Ex
         else:
@@ -389,7 +373,7 @@ def expectimax(mode, quintris, depth, player,best_move, game_depth = 3):
                # print(f'chance nodes')
                 #quintris.print_board(False)
 
-                Ex+= 1/6*expectimax(mode,quintris1, depth,"max", best_move,3)
+                Ex+= 1/6*expectimax(mode,quintris1, depth,"max", 3)
                 #print(f'depth:{depth}, E: {Ex}')
 
             return Ex
@@ -563,11 +547,11 @@ def heuristic(qunitris):
 
     #print(f'total_lines_cleared: {total_lines_cleared}')
 
-    row_transitions = get_row_transitions(qunitris.get_board(), max_height)
-    #print(f'row_transitions: {row_transitions}')
+    # row_transitions = get_row_transitions(qunitris.get_board(), max_height)
+    # #print(f'row_transitions: {row_transitions}')
 
-    col_transitions = get_column_transitions(qunitris.get_board(), col_heights)
-    #print(f'col_transitions: {col_transitions}')
+    # col_transitions = get_column_transitions(qunitris.get_board(), col_heights)
+    # #print(f'col_transitions: {col_transitions}')
 
     empty_cols = get_empty_cols(qunitris.get_board())
    # print(f'empty_cols: {empty_cols}')
@@ -592,15 +576,7 @@ class ComputerPlayer:
     #
     def get_moves(self, quintris):
         # super simple current algorithm: just randomly move left, right, and rotate a few times
-        #c = random.choice("mnbh")
-        self.qlist = []
-        best_move = 'b'
-        expectimax(self, quintris, 3, "max",best_move, 3)
-        print(f'best moves: {best_move}')
-
-        # succ, _  = generate_successors(quintris)
-        # print(f'succ size: {len(succ)}')
-
+        c = random.choice("mnbh")
         # print(f'max piece: {quintris.get_piece()} move: {c}')
         # print(f'Printing max successors.....')
         # max_successor = generate_successors(quintris)
@@ -612,8 +588,7 @@ class ComputerPlayer:
         #pass
         #expectimax(quintris, 2, "max", 2)
 
-        return "bbbnn"
-        #return c * random.randint(1, 10)
+        return c * random.randint(1, 10)
        
     # This is the version that's used by the animted version. This is really similar to get_moves,
     # except that it runs as a separate thread and you should access various methods and data in
