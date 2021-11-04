@@ -7,6 +7,8 @@
 
 import sys
 import math
+import numpy as np
+import matplotlib.pyplot as plt
 
 def load_file(filename):
     objects=[]
@@ -22,12 +24,12 @@ def load_file(filename):
 
 def pre_processing(data):
     punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
-    for sentence in range(len(data["objects"])):
+    for sentence in range(len(data)):
         new_sentence = ""
-        for c in data["objects"][sentence]:
+        for c in data[sentence]:
             if c not in punctuations:
                 new_sentence = new_sentence + c
-        data["objects"][sentence] = new_sentence
+        data[sentence] = new_sentence
     return data
 
 # classifier : Train and apply a bayes net classifier
@@ -43,7 +45,9 @@ def pre_processing(data):
 #
 # Do not change the return type or parameters of this function!
 #
-def classifier(train_data, test_data):
+
+
+def classifier(cross_train, cross_trainR, cross_test, m):
     # This is just dummy code -- put yours here!
     truthful_words = {}
     deceptive_words = {}
@@ -51,14 +55,14 @@ def classifier(train_data, test_data):
     deceptive_words_count = 0
     truthful_sentences_count = 0
     deceptive_sentences_count = 0
-    train_data = pre_processing(train_data)
-    test_data = pre_processing(test_data)
+    train_data = pre_processing(cross_train)
+    test_data = pre_processing(cross_test)
     all_unique_words = []
-    m = 0.3
-    for sentence in range(len(train_data["objects"])):
-        if train_data["labels"][sentence] == train_data["classes"][0]:
+    
+    for sentence in range(len(train_data)):
+        if cross_trainR[sentence] == "truthful":
             truthful_sentences_count += 1
-            for word in train_data["objects"][sentence].split(" "):
+            for word in train_data[sentence].split(" "):
                 if word not in all_unique_words:
                     all_unique_words.append(word)
                 truthful_words_count += 1
@@ -68,7 +72,7 @@ def classifier(train_data, test_data):
                     truthful_words[word] = 1
         else:
             deceptive_sentences_count += 1
-            for word in train_data["objects"][sentence].split(" "):
+            for word in train_data[sentence].split(" "):
                 if word not in all_unique_words:
                     all_unique_words.append(word)
                 deceptive_words_count += 1
@@ -78,7 +82,7 @@ def classifier(train_data, test_data):
                     deceptive_words[word] = 1
 
     predicted_labels = []
-    for sentence in test_data["objects"]:
+    for sentence in test_data:
         Prob_of_truthful_given_sentence = math.log(truthful_sentences_count/(truthful_sentences_count + deceptive_sentences_count))
         Prob_of_deceptive_given_sentence = math.log(deceptive_sentences_count/(truthful_sentences_count + deceptive_sentences_count))
         for word in sentence.split(" "):
@@ -93,11 +97,71 @@ def classifier(train_data, test_data):
                 Prob_of_deceptive_given_sentence += math.log((m+deceptive_words[word])/(deceptive_words_count + m*len(deceptive_words)))
 
         if Prob_of_truthful_given_sentence > Prob_of_deceptive_given_sentence:
-            predicted_labels.append(train_data["classes"][0])
+            predicted_labels.append("truthful")
         else:
-            predicted_labels.append(train_data["classes"][1])
-                    
+            predicted_labels.append("deceptive")
+
     return predicted_labels
+
+def accur(cross_train, cross_trainR, cross_test, cross_testR, m):
+    results= classifier(cross_train, cross_trainR, cross_test, m)
+    correct_ct = sum([ (results[i] == cross_testR[i]) for i in range(0, len(cross_testR))])
+    return 100.0 * correct_ct / len(cross_testR)
+
+
+def cross_validation(train_data):
+    n = len(train_data["objects"])
+    phi = np.array(train_data["objects"])
+    t = np.array(train_data["labels"])
+    # p = np.random.permutation(n)
+    # phi, t = phi[p], t[p]
+    p = np.random.permutation(len(phi))
+    phi, t = phi[p], t[p]
+    train = phi[:(2*n)//3]
+    trainR = t[:(2*n)//3]
+    test = phi[(2*n)//3:]
+    testR = t[(2*n)//3:]
+
+    length = len(train)
+    m_accuracies = []
+    for m in np.arange(0.1, 1.1, 0.1):
+        accuracy = []
+        for i in range(10):
+            if i == 0:
+                cross_train = train[(i+1)*length//10:]
+                cross_trainR = trainR[(i+1)*length//10:]
+            elif i == 9:
+                cross_train = train[:i*length//10]
+                cross_trainR = trainR[:i*length//10]
+            else:
+                cross_train = np.concatenate((train[:i*length//10],train[(i+1)*length//10:]))
+                cross_trainR = np.concatenate((trainR[:i*length//10],trainR[(i+1)*length//10:]))
+            cross_test = train[i*length//10:(i+1)*length//10]
+            cross_testR = trainR[i*length//10:(i+1)*length//10]
+            acc = accur(cross_train, cross_trainR, cross_test, cross_testR, m)
+            accuracy.append(acc)
+
+        avg_acc = 0
+        for a in accuracy:
+            avg_acc += a
+        m_accuracies.append(avg_acc/10)
+    best_m = 0
+    best_accuracy = 0
+    for i in range(len(m_accuracies)):
+        if m_accuracies[i]>best_accuracy:
+            best_m = i/10 + 0.1
+            best_accuracy= m_accuracies[i]
+    return m_accuracies, best_accuracy, best_m
+
+
+def plot(m_accuracies):
+    m = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+    plt.plot(m, m_accuracies) 
+    plt.xlabel("m")
+    plt.ylabel("accuracy")
+    plt.title("accuracy respect to m")
+    plt.savefig("optimizer.png")
+    plt.show()
 
 
 if __name__ == "__main__":
@@ -115,8 +179,6 @@ if __name__ == "__main__":
     # make a copy of the test data without the correct labels, so the classifier can't cheat!
     test_data_sanitized = {"objects": test_data["objects"], "classes": test_data["classes"]}
 
-    results= classifier(train_data, test_data_sanitized)
+    m_accuracies, best_accuracy, best_m = cross_validation(train_data)
 
-    # calculate accuracy
-    correct_ct = sum([ (results[i] == test_data["labels"][i]) for i in range(0, len(test_data["labels"])) ])
-    print("Classification accuracy = %5.2f%%" % (100.0 * correct_ct / len(test_data["labels"])))
+    plot(m_accuracies)
