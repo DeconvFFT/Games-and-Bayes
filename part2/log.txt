@@ -1,11 +1,993 @@
+depth 0:-8.872406
+in max=> maxeval:-8.872406,best_move:mmmmmmmmmmm 
+depth 0:-8.872406
+in max=> maxeval:-8.872406,best_move:mmmmmmmmmmm 
+depth 0:-8.872406
+in max=> maxeval:-8.872406,best_move:mmmmmmmmmmm 
+depth 0:-8.872406
+in max=> maxeval:-8.872406,best_move:mmmmmmmmmmm 
+depth 0:-8.872406
+in max=> maxeval:-8.872406,best_move:mmmmmmmmmmm 
+depth 0:-8.872406
+in max=> maxeval:-8.872406,best_move:mmmmmmmmmmm 
+depth 0:-8.134474
+in max=> maxeval:-8.134474,best_move:mmmmmmmmmmm 
+depth 0:-6.437711999999999
+in max=> maxeval:-6.437711999999999,best_move:mmmmmmmmmmm 
+depth 0:-4.74095
+in max=> maxeval:-4.74095,best_move:mmmmmmmmmmm 
+depth 0:-3.0441880000000006
+in max=> maxeval:-3.0441880000000006,best_move:mmmmmmmmmmm 
+depth 0:-8.232406000000001
+in max=> maxeval:-8.232406000000001,best_move:hmmmmmmmmmmm 
+depth 0:-8.970338
+in max=> maxeval:-8.970338,best_move:hmmmmmmmmmmm 
+depth 0:-8.970338
+in max=> maxeval:-8.970338,best_move:hmmmmmmmmmmm 
+depth 0:-8.970338
+in max=> maxeval:-8.970338,best_move:hmmmmmmmmmmm 
+depth 0:-8.970338
+in max=> maxeval:-8.970338,best_move:hmmmmmmmmmmm 
+depth 0:-8.970338
+in max=> maxeval:-8.970338,best_move:hmmmmmmmmmmm 
+depth 0:-8.970338
+in max=> maxeval:-8.970338,best_move:hmmmmmmmmmmm 
+depth 0:-8.970338
+in max=> maxeval:-8.970338,best_move:hmmmmmmmmmmm 
+depth 0:-8.970338
+in max=> maxeval:-8.970338,best_move:hmmmmmmmmmmm 
+depth 0:-8.970338
+in max=> maxeval:-8.970338,best_move:hmmmmmmmmmmm 
+depth 0:-7.863440000000001
+in max=> maxeval:-7.863440000000001,best_move:hmmmmmmmmmmm 
+depth 0:-5.656611999999999
+in max=> maxeval:-5.656611999999999,best_move:hmmmmmmmmmmm 
+depth 0:-3.0808180000000007
+in max=> maxeval:-3.0808180000000007,best_move:hmmmmmmmmmmm 
+depth 0:-2.5397050000000005
+in max=> maxeval:-2.5397050000000005,best_move:hmmmmmmmmmmm 
+depth 0:-7.821227
+in max=> maxeval:-7.821227,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.00571
+in max=> maxeval:-8.00571,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.00571
+in max=> maxeval:-8.00571,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.00571
+in max=> maxeval:-8.00571,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.00571
+in max=> maxeval:-8.00571,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.00571
+in max=> maxeval:-8.00571,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.00571
+in max=> maxeval:-8.00571,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.00571
+in max=> maxeval:-8.00571,best_move:hnmmmmmmmmmmmmm 
+depth 0:-7.267778000000001
+in max=> maxeval:-7.267778000000001,best_move:hnmmmmmmmmmmmmm 
+depth 0:-5.571016
+in max=> maxeval:-5.571016,best_move:hnmmmmmmmmmmmmm 
+depth 0:-3.8742540000000005
+in max=> maxeval:-3.8742540000000005,best_move:hnmmmmmmmmmmmmm 
+depth 0:-3.0441880000000006
+in max=> maxeval:-3.0441880000000006,best_move:hnmmmmmmmmmmmmm 
+depth 0:-7.365710000000001
+in max=> maxeval:-7.365710000000001,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.103642
+in max=> maxeval:-8.103642,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.103642
+in max=> maxeval:-8.103642,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.103642
+in max=> maxeval:-8.103642,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.103642
+in max=> maxeval:-8.103642,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.103642
+in max=> maxeval:-8.103642,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.103642
+in max=> maxeval:-8.103642,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.103642
+in max=> maxeval:-8.103642,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.103642
+in max=> maxeval:-8.103642,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.103642
+in max=> maxeval:-8.103642,best_move:hnmmmmmmmmmmmmm 
+depth 0:-7.365710000000001
+in max=> maxeval:-7.365710000000001,best_move:hnmmmmmmmmmmmmm 
+depth 0:-5.299982
+in max=> maxeval:-5.299982,best_move:hnmmmmmmmmmmmmm 
+depth 0:-3.0808180000000007
+in max=> maxeval:-3.0808180000000007,best_move:hnmmmmmmmmmmmmm 
+depth 0:-2.2141220000000006
+in max=> maxeval:-2.2141220000000006,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.687923
+in max=> maxeval:-8.687923,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.872406
+in max=> maxeval:-8.872406,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.872406
+in max=> maxeval:-8.872406,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.872406
+in max=> maxeval:-8.872406,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.872406
+in max=> maxeval:-8.872406,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.872406
+in max=> maxeval:-8.872406,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.872406
+in max=> maxeval:-8.872406,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.872406
+in max=> maxeval:-8.872406,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.134474
+in max=> maxeval:-8.134474,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-6.437711999999999
+in max=> maxeval:-6.437711999999999,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-4.74095
+in max=> maxeval:-4.74095,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-3.0441880000000006
+in max=> maxeval:-3.0441880000000006,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.232406000000001
+in max=> maxeval:-8.232406000000001,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.970338
+in max=> maxeval:-8.970338,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.970338
+in max=> maxeval:-8.970338,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.970338
+in max=> maxeval:-8.970338,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.970338
+in max=> maxeval:-8.970338,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.970338
+in max=> maxeval:-8.970338,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.970338
+in max=> maxeval:-8.970338,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.970338
+in max=> maxeval:-8.970338,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.970338
+in max=> maxeval:-8.970338,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.970338
+in max=> maxeval:-8.970338,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-7.863440000000001
+in max=> maxeval:-7.863440000000001,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-5.656611999999999
+in max=> maxeval:-5.656611999999999,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-3.0808180000000007
+in max=> maxeval:-3.0808180000000007,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-2.5397050000000005
+in max=> maxeval:-2.5397050000000005,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-7.821227
+in max=> maxeval:-7.821227,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.00571
+in max=> maxeval:-8.00571,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.00571
+in max=> maxeval:-8.00571,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.00571
+in max=> maxeval:-8.00571,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.00571
+in max=> maxeval:-8.00571,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.00571
+in max=> maxeval:-8.00571,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.00571
+in max=> maxeval:-8.00571,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.00571
+in max=> maxeval:-8.00571,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-7.267778000000001
+in max=> maxeval:-7.267778000000001,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-5.571016
+in max=> maxeval:-5.571016,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-3.8742540000000005
+in max=> maxeval:-3.8742540000000005,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-3.0441880000000006
+in max=> maxeval:-3.0441880000000006,best_move:hnnnmmmmmmmmmmmmm 
+in max=> maxeval:-2.4795040000000004,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-7.82681
+in max=> maxeval:-7.82681,best_move:hnnnmmmmmmmmmmmmm 
+depth 0:-8.195775999999999
+in max=> maxeval:-8.195775999999999,best_move: 
+depth 0:-8.195775999999999
+in max=> maxeval:-8.195775999999999,best_move: 
+depth 0:-8.195775999999999
+in max=> maxeval:-8.195775999999999,best_move: 
+depth 0:-8.195775999999999
+in max=> maxeval:-8.195775999999999,best_move: 
+depth 0:-8.195775999999999
+in max=> maxeval:-8.195775999999999,best_move: 
+depth 0:-8.195775999999999
+in max=> maxeval:-8.195775999999999,best_move: 
+depth 0:-8.195775999999999
+in max=> maxeval:-8.195775999999999,best_move: 
+depth 0:-8.195775999999999
+in max=> maxeval:-8.195775999999999,best_move: 
+depth 0:-7.457844
+in max=> maxeval:-7.457844,best_move: 
+depth 0:-5.761082
+in max=> maxeval:-5.761082,best_move:mmmmmmmmm 
+depth 0:-3.695354
+in max=> maxeval:-3.695354,best_move:mmmmmmmmmm 
+depth 0:-1.8451560000000005
+in max=> maxeval:-1.8451560000000005,best_move:mmmmmmmmmmm 
+depth 0:-6.179969
+in max=> maxeval:-6.179969,best_move:mmmmmmmmmmmm 
+depth 0:-6.364452
+in max=> maxeval:-6.364452,best_move: 
+depth 0:-6.364452
+in max=> maxeval:-6.364452,best_move: 
+depth 0:-6.364452
+in max=> maxeval:-6.364452,best_move: 
+depth 0:-6.364452
+in max=> maxeval:-6.364452,best_move: 
+depth 0:-6.364452
+in max=> maxeval:-6.364452,best_move: 
+depth 0:-6.364452
+in max=> maxeval:-6.364452,best_move: 
+depth 0:-5.995486
+in max=> maxeval:-5.995486,best_move: 
+depth 0:-4.808789999999999
+in max=> maxeval:-4.808789999999999,best_move:mmmmmmm 
+depth 0:-3.9787239999999997
+in max=> maxeval:-3.9787239999999997,best_move:mmmmmmmm 
+depth 0:-3.148658
+in max=> maxeval:-3.148658,best_move:mmmmmmmmm 
+depth 0:-5.637901
+in max=> maxeval:-5.637901,best_move:mmmmmmmmmm 
+depth 0:-6.560316
+in max=> maxeval:-6.560316,best_move:mmmmmmmmmm 
+depth 0:-6.560316
+in max=> maxeval:-6.560316,best_move:mmmmmmmmmm 
+depth 0:-6.560316
+in max=> maxeval:-6.560316,best_move:mmmmmmmmmm 
+depth 0:-6.560316
+in max=> maxeval:-6.560316,best_move:mmmmmmmmmm 
+depth 0:-6.560316
+in max=> maxeval:-6.560316,best_move:mmmmmmmmmm 
+depth 0:-6.560316
+in max=> maxeval:-6.560316,best_move:mmmmmmmmmm 
+depth 0:-6.560316
+in max=> maxeval:-6.560316,best_move:mmmmmmmmmm 
+depth 0:-6.560316
+in max=> maxeval:-6.560316,best_move:mmmmmmmmmm 
+depth 0:-6.560316
+in max=> maxeval:-6.560316,best_move:mmmmmmmmmm 
+depth 0:-6.560316
+in max=> maxeval:-6.560316,best_move:mmmmmmmmmm 
+depth 0:-5.822384
+in max=> maxeval:-5.822384,best_move:mmmmmmmmmm 
+depth 0:-3.756656
+in max=> maxeval:-3.756656,best_move:mmmmmmmmmm 
+depth 0:-3.234254000000001
+in max=> maxeval:-3.234254000000001,best_move:mmmmmmmmmm 
+depth 0:-2.5397050000000005
+in max=> maxeval:-2.5397050000000005,best_move:mmmmmmmmmm 
+depth 0:-8.64454
+in max=> maxeval:-8.64454,best_move:nmmmmmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move: 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move: 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move: 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move: 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move: 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move: 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move: 
+depth 0:-8.275574
+in max=> maxeval:-8.275574,best_move: 
+depth 0:-6.578812000000001
+in max=> maxeval:-6.578812000000001,best_move:mmmmmmmm 
+depth 0:-5.23868
+in max=> maxeval:-5.23868,best_move:mmmmmmmmm 
+depth 0:-3.541918000000001
+in max=> maxeval:-3.541918000000001,best_move:mmmmmmmmmm 
+depth 0:-8.64454
+in max=> maxeval:-8.64454,best_move:mmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:mmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:mmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:mmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:mmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:mmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:mmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:mmmmmmmmmmm 
+depth 0:-8.275574
+in max=> maxeval:-8.275574,best_move:mmmmmmmmmmm 
+depth 0:-6.578812000000001
+in max=> maxeval:-6.578812000000001,best_move:mmmmmmmmmmm 
+depth 0:-4.88205
+in max=> maxeval:-4.88205,best_move:mmmmmmmmmmm 
+depth 0:-3.185288000000001
+in max=> maxeval:-3.185288000000001,best_move:mmmmmmmmmmm 
+depth 0:-8.373506
+in max=> maxeval:-8.373506,best_move:hmmmmmmmmmmm 
+depth 0:-9.111438
+in max=> maxeval:-9.111438,best_move:hmmmmmmmmmmm 
+depth 0:-9.111438
+in max=> maxeval:-9.111438,best_move:hmmmmmmmmmmm 
+depth 0:-9.111438
+in max=> maxeval:-9.111438,best_move:hmmmmmmmmmmm 
+depth 0:-9.111438
+in max=> maxeval:-9.111438,best_move:hmmmmmmmmmmm 
+depth 0:-9.111438
+in max=> maxeval:-9.111438,best_move:hmmmmmmmmmmm 
+depth 0:-9.111438
+in max=> maxeval:-9.111438,best_move:hmmmmmmmmmmm 
+depth 0:-9.111438
+in max=> maxeval:-9.111438,best_move:hmmmmmmmmmmm 
+depth 0:-9.111438
+in max=> maxeval:-9.111438,best_move:hmmmmmmmmmmm 
+depth 0:-9.111438
+in max=> maxeval:-9.111438,best_move:hmmmmmmmmmmm 
+depth 0:-8.373506
+in max=> maxeval:-8.373506,best_move:hmmmmmmmmmmm 
+depth 0:-6.307778000000002
+in max=> maxeval:-6.307778000000002,best_move:hmmmmmmmmmmm 
+depth 0:-3.7319839999999997
+in max=> maxeval:-3.7319839999999997,best_move:hmmmmmmmmmmm 
+depth 0:-2.3552220000000004
+in max=> maxeval:-2.3552220000000004,best_move:hmmmmmmmmmmm 
+depth 0:-6.228935000000001
+in max=> maxeval:-6.228935000000001,best_move:hnmmmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:hnmmmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:hnmmmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:hnmmmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:hnmmmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:hnmmmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:hnmmmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:hnmmmmmmmmmmmmm 
+depth 0:-5.675486
+in max=> maxeval:-5.675486,best_move:hnmmmmmmmmmmmmm 
+depth 0:-3.9787239999999997
+in max=> maxeval:-3.9787239999999997,best_move:hnmmmmmmmmmmmmm 
+depth 0:-3.148658
+in max=> maxeval:-3.148658,best_move:hnmmmmmmmmmmmmm 
+depth 0:-2.3185920000000007
+in max=> maxeval:-2.3185920000000007,best_move:hnmmmmmmmmmmmmm 
+depth 0:-5.7734179999999995
+in max=> maxeval:-5.7734179999999995,best_move:hnnmmmmmmmmmmm 
+depth 0:-6.51135
+in max=> maxeval:-6.51135,best_move:hnnmmmmmmmmmmm 
+depth 0:-6.51135
+in max=> maxeval:-6.51135,best_move:hnnmmmmmmmmmmm 
+depth 0:-6.51135
+in max=> maxeval:-6.51135,best_move:hnnmmmmmmmmmmm 
+depth 0:-6.51135
+in max=> maxeval:-6.51135,best_move:hnnmmmmmmmmmmm 
+depth 0:-6.51135
+in max=> maxeval:-6.51135,best_move:hnnmmmmmmmmmmm 
+depth 0:-6.51135
+in max=> maxeval:-6.51135,best_move:hnnmmmmmmmmmmm 
+depth 0:-6.51135
+in max=> maxeval:-6.51135,best_move:hnnmmmmmmmmmmm 
+depth 0:-6.51135
+in max=> maxeval:-6.51135,best_move:hnnmmmmmmmmmmm 
+depth 0:-6.51135
+in max=> maxeval:-6.51135,best_move:hnnmmmmmmmmmmm 
+depth 0:-6.142384
+in max=> maxeval:-6.142384,best_move:hnnmmmmmmmmmmm 
+depth 0:-4.586722
+in max=> maxeval:-4.586722,best_move:hnnmmmmmmmmmmm 
+depth 0:-2.877624000000001
+in max=> maxeval:-2.877624000000001,best_move:hnnmmmmmmmmmmm 
+depth 0:-2.3552220000000004
+in max=> maxeval:-2.3552220000000004,best_move:hnnmmmmmmmmmmm 
+depth 0:-8.64454
+in max=> maxeval:-8.64454,best_move:hnnmmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:hnnmmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:hnnmmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:hnnmmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:hnnmmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:hnnmmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:hnnmmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:hnnmmmmmmmmmmm 
+depth 0:-8.275574
+in max=> maxeval:-8.275574,best_move:hnnmmmmmmmmmmm 
+depth 0:-6.578812000000001
+in max=> maxeval:-6.578812000000001,best_move:hnnmmmmmmmmmmm 
+depth 0:-4.88205
+in max=> maxeval:-4.88205,best_move:hnnmmmmmmmmmmm 
+depth 0:-3.185288000000001
+in max=> maxeval:-3.185288000000001,best_move:hnnmmmmmmmmmmm 
+depth 0:-8.373506
+in max=> maxeval:-8.373506,best_move:hnnmmmmmmmmmmm 
+depth 0:-9.111438
+in max=> maxeval:-9.111438,best_move:hnnmmmmmmmmmmm 
+depth 0:-9.111438
+in max=> maxeval:-9.111438,best_move:hnnmmmmmmmmmmm 
+depth 0:-9.111438
+in max=> maxeval:-9.111438,best_move:hnnmmmmmmmmmmm 
+depth 0:-9.111438
+in max=> maxeval:-9.111438,best_move:hnnmmmmmmmmmmm 
+depth 0:-9.111438
+in max=> maxeval:-9.111438,best_move:hnnmmmmmmmmmmm 
+depth 0:-9.111438
+in max=> maxeval:-9.111438,best_move:hnnmmmmmmmmmmm 
+depth 0:-9.111438
+in max=> maxeval:-9.111438,best_move:hnnmmmmmmmmmmm 
+depth 0:-9.111438
+in max=> maxeval:-9.111438,best_move:hnnmmmmmmmmmmm 
+depth 0:-9.111438
+in max=> maxeval:-9.111438,best_move:hnnmmmmmmmmmmm 
+depth 0:-8.373506
+in max=> maxeval:-8.373506,best_move:hnnmmmmmmmmmmm 
+depth 0:-6.307778000000002
+in max=> maxeval:-6.307778000000002,best_move:hnnmmmmmmmmmmm 
+depth 0:-3.7319839999999997
+in max=> maxeval:-3.7319839999999997,best_move:hnnmmmmmmmmmmm 
+depth 0:-2.3552220000000004
+in max=> maxeval:-2.3552220000000004,best_move:hnnmmmmmmmmmmm 
+depth 0:-6.228935000000001
+in max=> maxeval:-6.228935000000001,best_move:hnnmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:hnnmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:hnnmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:hnnmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:hnnmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:hnnmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:hnnmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:hnnmmmmmmmmmmm 
+depth 0:-5.675486
+in max=> maxeval:-5.675486,best_move:hnnmmmmmmmmmmm 
+depth 0:-3.9787239999999997
+in max=> maxeval:-3.9787239999999997,best_move:hnnmmmmmmmmmmm 
+depth 0:-3.148658
+in max=> maxeval:-3.148658,best_move:hnnmmmmmmmmmmm 
+depth 0:-2.3185920000000007
+in max=> maxeval:-2.3185920000000007,best_move:hnnmmmmmmmmmmm 
+depth 0:-8.64454
+in max=> maxeval:-8.64454,best_move:nnnmmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move: 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move: 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move: 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move: 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move: 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move: 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move: 
+depth 0:-8.275574
+in max=> maxeval:-8.275574,best_move: 
+depth 0:-6.578812000000001
+in max=> maxeval:-6.578812000000001,best_move:mmmmmmmm 
+depth 0:-4.88205
+in max=> maxeval:-4.88205,best_move:mmmmmmmmm 
+depth 0:-3.541918000000001
+in max=> maxeval:-3.541918000000001,best_move:mmmmmmmmmm 
+depth 0:-8.64454
+in max=> maxeval:-8.64454,best_move:mmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:mmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:mmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:mmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:mmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:mmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:mmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:mmmmmmmmmmm 
+depth 0:-8.275574
+in max=> maxeval:-8.275574,best_move:mmmmmmmmmmm 
+depth 0:-6.578812000000001
+in max=> maxeval:-6.578812000000001,best_move:mmmmmmmmmmm 
+depth 0:-4.88205
+in max=> maxeval:-4.88205,best_move:mmmmmmmmmmm 
+depth 0:-3.185288000000001
+in max=> maxeval:-3.185288000000001,best_move:mmmmmmmmmmm 
+depth 0:-7.691292999999999
+in max=> maxeval:-7.691292999999999,best_move:hmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hmmmmmmmmmmm 
+depth 0:-7.50681
+in max=> maxeval:-7.50681,best_move:hmmmmmmmmmmm 
+depth 0:-5.441082000000001
+in max=> maxeval:-5.441082000000001,best_move:hmmmmmmmmmmm 
+depth 0:-2.8652880000000005
+in max=> maxeval:-2.8652880000000005,best_move:hmmmmmmmmmmm 
+depth 0:-1.8451560000000005
+in max=> maxeval:-1.8451560000000005,best_move:hnmmmmmmmmmmmm 
+depth 0:-6.228935000000001
+in max=> maxeval:-6.228935000000001,best_move:hnmmmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:hnmmmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:hnmmmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:hnmmmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:hnmmmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:hnmmmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:hnmmmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:hnmmmmmmmmmmmmm 
+depth 0:-6.044452000000001
+in max=> maxeval:-6.044452000000001,best_move:hnmmmmmmmmmmmmm 
+depth 0:-4.48879
+in max=> maxeval:-4.48879,best_move:hnmmmmmmmmmmmmm 
+depth 0:-3.148658
+in max=> maxeval:-3.148658,best_move:hnmmmmmmmmmmmmm 
+depth 0:-2.3185920000000007
+in max=> maxeval:-2.3185920000000007,best_move:hnmmmmmmmmmmmmm 
+depth 0:-6.6401140000000005
+in max=> maxeval:-6.6401140000000005,best_move:hnmmmmmmmmmmmmm 
+depth 0:-7.378046
+in max=> maxeval:-7.378046,best_move:hnmmmmmmmmmmmmm 
+depth 0:-7.378046
+in max=> maxeval:-7.378046,best_move:hnmmmmmmmmmmmmm 
+depth 0:-7.378046
+in max=> maxeval:-7.378046,best_move:hnmmmmmmmmmmmmm 
+depth 0:-7.378046
+in max=> maxeval:-7.378046,best_move:hnmmmmmmmmmmmmm 
+depth 0:-7.378046
+in max=> maxeval:-7.378046,best_move:hnmmmmmmmmmmmmm 
+depth 0:-7.378046
+in max=> maxeval:-7.378046,best_move:hnmmmmmmmmmmmmm 
+depth 0:-7.378046
+in max=> maxeval:-7.378046,best_move:hnmmmmmmmmmmmmm 
+depth 0:-7.378046
+in max=> maxeval:-7.378046,best_move:hnmmmmmmmmmmmmm 
+depth 0:-7.378046
+in max=> maxeval:-7.378046,best_move:hnmmmmmmmmmmmmm 
+depth 0:-6.6401140000000005
+in max=> maxeval:-6.6401140000000005,best_move:hnmmmmmmmmmmmmm 
+depth 0:-4.943352
+in max=> maxeval:-4.943352,best_move:hnmmmmmmmmmmmmm 
+depth 0:-2.877624000000001
+in max=> maxeval:-2.877624000000001,best_move:hnmmmmmmmmmmmmm 
+depth 0:-2.3552220000000004
+in max=> maxeval:-2.3552220000000004,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.64454
+in max=> maxeval:-8.64454,best_move:hnmmmmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:hnmmmmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:hnmmmmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:hnmmmmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:hnmmmmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:hnmmmmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:hnmmmmmmmmmmmmm 
+depth 0:-9.013506
+in max=> maxeval:-9.013506,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.275574
+in max=> maxeval:-8.275574,best_move:hnmmmmmmmmmmmmm 
+depth 0:-6.578812000000001
+in max=> maxeval:-6.578812000000001,best_move:hnmmmmmmmmmmmmm 
+depth 0:-4.88205
+in max=> maxeval:-4.88205,best_move:hnmmmmmmmmmmmmm 
+depth 0:-3.185288000000001
+in max=> maxeval:-3.185288000000001,best_move:hnmmmmmmmmmmmmm 
+depth 0:-7.691292999999999
+in max=> maxeval:-7.691292999999999,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hnmmmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hnmmmmmmmmmmmmm 
+depth 0:-7.50681
+in max=> maxeval:-7.50681,best_move:hnmmmmmmmmmmmmm 
+depth 0:-5.441082000000001
+in max=> maxeval:-5.441082000000001,best_move:hnmmmmmmmmmmmmm 
+depth 0:-2.8652880000000005
+in max=> maxeval:-2.8652880000000005,best_move:hnmmmmmmmmmmmmm 
+depth 0:-1.8451560000000005
+in max=> maxeval:-1.8451560000000005,best_move:hnmmmmmmmmmmmmm 
+depth 0:-6.228935000000001
+in max=> maxeval:-6.228935000000001,best_move:nnmmmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:nnmmmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:nnmmmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:nnmmmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:nnmmmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:nnmmmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:nnmmmmmmmmmmmmm 
+depth 0:-6.413418
+in max=> maxeval:-6.413418,best_move:nnmmmmmmmmmmmmm 
+depth 0:-6.044452000000001
+in max=> maxeval:-6.044452000000001,best_move:nnmmmmmmmmmmmmm 
+depth 0:-4.48879
+in max=> maxeval:-4.48879,best_move:nnmmmmmmmmmmmmm 
+depth 0:-3.148658
+in max=> maxeval:-3.148658,best_move:nnmmmmmmmmmmmmm 
+depth 0:-2.3185920000000007
+in max=> maxeval:-2.3185920000000007,best_move:nnmmmmmmmmmmmmm 
+depth 0:-6.5911480000000005
+in max=> maxeval:-6.5911480000000005,best_move:nnmmmmmmmmmmmmm 
+depth 0:-6.960114000000001
+in max=> maxeval:-6.960114000000001,best_move: 
+depth 0:-6.960114000000001
+in max=> maxeval:-6.960114000000001,best_move: 
+depth 0:-6.960114000000001
+in max=> maxeval:-6.960114000000001,best_move: 
+depth 0:-6.960114000000001
+in max=> maxeval:-6.960114000000001,best_move: 
+depth 0:-6.960114000000001
+in max=> maxeval:-6.960114000000001,best_move: 
+depth 0:-6.960114000000001
+in max=> maxeval:-6.960114000000001,best_move: 
+depth 0:-6.960114000000001
+in max=> maxeval:-6.960114000000001,best_move: 
+depth 0:-6.960114000000001
+in max=> maxeval:-6.960114000000001,best_move: 
+depth 0:-6.222182
+in max=> maxeval:-6.222182,best_move: 
+depth 0:-4.5254199999999996
+in max=> maxeval:-4.5254199999999996,best_move:mmmmmmmmm 
+depth 0:-3.185288000000001
+in max=> maxeval:-3.185288000000001,best_move:mmmmmmmmmm 
+depth 0:-1.4885260000000005
+in max=> maxeval:-1.4885260000000005,best_move:mmmmmmmmmmm 
+depth 0:-6.455631
+in max=> maxeval:-6.455631,best_move:mmmmmmmmmmmm 
+depth 0:-7.00908
+in max=> maxeval:-7.00908,best_move:mmmmmmmmmmmm 
+depth 0:-7.00908
+in max=> maxeval:-7.00908,best_move:mmmmmmmmmmmm 
+depth 0:-7.00908
+in max=> maxeval:-7.00908,best_move:mmmmmmmmmmmm 
+depth 0:-7.00908
+in max=> maxeval:-7.00908,best_move:mmmmmmmmmmmm 
+depth 0:-7.00908
+in max=> maxeval:-7.00908,best_move:mmmmmmmmmmmm 
+depth 0:-7.00908
+in max=> maxeval:-7.00908,best_move:mmmmmmmmmmmm 
+depth 0:-7.00908
+in max=> maxeval:-7.00908,best_move:mmmmmmmmmmmm 
+depth 0:-7.00908
+in max=> maxeval:-7.00908,best_move:mmmmmmmmmmmm 
+depth 0:-7.00908
+in max=> maxeval:-7.00908,best_move:mmmmmmmmmmmm 
+depth 0:-6.271148
+in max=> maxeval:-6.271148,best_move:mmmmmmmmmmmm 
+depth 0:-4.20542
+in max=> maxeval:-4.20542,best_move:mmmmmmmmmmmm 
+depth 0:-1.9985920000000006
+in max=> maxeval:-1.9985920000000006,best_move:mmmmmmmmmmmm 
+depth 0:-1.8451560000000005
+in max=> maxeval:-1.8451560000000005,best_move:mmmmmmmmmmmm 
+depth 0:-6.093418
+in max=> maxeval:-6.093418,best_move:mmmmmmmmmmmm 
+depth 0:-6.462384
+in max=> maxeval:-6.462384,best_move:mmmmmmmmmmmm 
+depth 0:-6.462384
+in max=> maxeval:-6.462384,best_move:mmmmmmmmmmmm 
+depth 0:-6.462384
+in max=> maxeval:-6.462384,best_move:mmmmmmmmmmmm 
+depth 0:-6.462384
+in max=> maxeval:-6.462384,best_move:mmmmmmmmmmmm 
+depth 0:-6.462384
+in max=> maxeval:-6.462384,best_move:mmmmmmmmmmmm 
+depth 0:-6.462384
+in max=> maxeval:-6.462384,best_move:mmmmmmmmmmmm 
+depth 0:-6.462384
+in max=> maxeval:-6.462384,best_move:mmmmmmmmmmmm 
+depth 0:-6.462384
+in max=> maxeval:-6.462384,best_move:mmmmmmmmmmmm 
+depth 0:-5.724452
+in max=> maxeval:-5.724452,best_move:mmmmmmmmmmmm 
+depth 0:-4.02769
+in max=> maxeval:-4.02769,best_move:mmmmmmmmmmmm 
+depth 0:-2.828658000000001
+in max=> maxeval:-2.828658000000001,best_move:mmmmmmmmmmmm 
+depth 0:-1.4885260000000005
+in max=> maxeval:-1.4885260000000005,best_move:mmmmmmmmmmmm 
+depth 0:-6.455631
+in max=> maxeval:-6.455631,best_move:nnmmmmmmmmmmmm 
+depth 0:-7.00908
+in max=> maxeval:-7.00908,best_move:nnmmmmmmmmmmmm 
+depth 0:-7.00908
+in max=> maxeval:-7.00908,best_move:nnmmmmmmmmmmmm 
+depth 0:-7.00908
+in max=> maxeval:-7.00908,best_move:nnmmmmmmmmmmmm 
+depth 0:-7.00908
+in max=> maxeval:-7.00908,best_move:nnmmmmmmmmmmmm 
+depth 0:-7.00908
+in max=> maxeval:-7.00908,best_move:nnmmmmmmmmmmmm 
+depth 0:-7.00908
+in max=> maxeval:-7.00908,best_move:nnmmmmmmmmmmmm 
+depth 0:-7.00908
+in max=> maxeval:-7.00908,best_move:nnmmmmmmmmmmmm 
+depth 0:-7.00908
+in max=> maxeval:-7.00908,best_move:nnmmmmmmmmmmmm 
+depth 0:-7.00908
+in max=> maxeval:-7.00908,best_move:nnmmmmmmmmmmmm 
+depth 0:-6.271148
+in max=> maxeval:-6.271148,best_move:nnmmmmmmmmmmmm 
+depth 0:-3.84879
+in max=> maxeval:-3.84879,best_move:nnmmmmmmmmmmmm 
+depth 0:-1.9985920000000006
+in max=> maxeval:-1.9985920000000006,best_move:nnmmmmmmmmmmmm 
+depth 0:-1.8451560000000005
+in max=> maxeval:-1.8451560000000005,best_move:nnmmmmmmmmmmmm 
+depth 0:-7.777843999999999
+in max=> maxeval:-7.777843999999999,best_move:nnmmmmmmmmmmmm 
+depth 0:-8.146809999999999
+in max=> maxeval:-8.146809999999999,best_move: 
+depth 0:-8.146809999999999
+in max=> maxeval:-8.146809999999999,best_move: 
+depth 0:-8.146809999999999
+in max=> maxeval:-8.146809999999999,best_move: 
+depth 0:-8.146809999999999
+in max=> maxeval:-8.146809999999999,best_move: 
+depth 0:-8.146809999999999
+in max=> maxeval:-8.146809999999999,best_move: 
+depth 0:-8.146809999999999
+in max=> maxeval:-8.146809999999999,best_move: 
+depth 0:-8.146809999999999
+in max=> maxeval:-8.146809999999999,best_move: 
+depth 0:-7.777843999999999
+in max=> maxeval:-7.777843999999999,best_move: 
+depth 0:-6.222182
+in max=> maxeval:-6.222182,best_move:mmmmmmmm 
+depth 0:-4.88205
+in max=> maxeval:-4.88205,best_move:mmmmmmmmm 
+depth 0:-3.541918000000001
+in max=> maxeval:-3.541918000000001,best_move:mmmmmmmmmm 
+depth 0:-7.962326999999999
+in max=> maxeval:-7.962326999999999,best_move:mmmmmmmmmmm 
+depth 0:-8.146809999999999
+in max=> maxeval:-8.146809999999999,best_move:mmmmmmmmmmm 
+depth 0:-8.146809999999999
+in max=> maxeval:-8.146809999999999,best_move:mmmmmmmmmmm 
+depth 0:-8.146809999999999
+in max=> maxeval:-8.146809999999999,best_move:mmmmmmmmmmm 
+depth 0:-8.146809999999999
+in max=> maxeval:-8.146809999999999,best_move:mmmmmmmmmmm 
+depth 0:-8.146809999999999
+in max=> maxeval:-8.146809999999999,best_move:mmmmmmmmmmm 
+depth 0:-8.146809999999999
+in max=> maxeval:-8.146809999999999,best_move:mmmmmmmmmmm 
+depth 0:-8.146809999999999
+in max=> maxeval:-8.146809999999999,best_move:mmmmmmmmmmm 
+depth 0:-7.408877999999999
+in max=> maxeval:-7.408877999999999,best_move:mmmmmmmmmmm 
+depth 0:-5.712116
+in max=> maxeval:-5.712116,best_move:mmmmmmmmmmm 
+depth 0:-4.015353999999999
+in max=> maxeval:-4.015353999999999,best_move:mmmmmmmmmmm 
+depth 0:-2.3185920000000007
+in max=> maxeval:-2.3185920000000007,best_move:mmmmmmmmmmm 
+depth 0:-7.50681
+in max=> maxeval:-7.50681,best_move:hmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:hmmmmmmmmmmm 
+depth 0:-7.50681
+in max=> maxeval:-7.50681,best_move:hmmmmmmmmmmm 
+depth 0:-5.441082000000001
+in max=> maxeval:-5.441082000000001,best_move:hmmmmmmmmmmm 
+depth 0:-3.234254000000001
+in max=> maxeval:-3.234254000000001,best_move:hmmmmmmmmmmm 
+depth 0:-2.3552220000000004
+in max=> maxeval:-2.3552220000000004,best_move:hmmmmmmmmmmm 
+depth 0:-7.095631
+in max=> maxeval:-7.095631,best_move:hmmmmmmmmmmm 
+depth 0:-7.280113999999999
+in max=> maxeval:-7.280113999999999,best_move:hmmmmmmmmmmm 
+depth 0:-7.280113999999999
+in max=> maxeval:-7.280113999999999,best_move:hmmmmmmmmmmm 
+depth 0:-7.280113999999999
+in max=> maxeval:-7.280113999999999,best_move:hmmmmmmmmmmm 
+depth 0:-7.280113999999999
+in max=> maxeval:-7.280113999999999,best_move:hmmmmmmmmmmm 
+depth 0:-7.280113999999999
+in max=> maxeval:-7.280113999999999,best_move:hmmmmmmmmmmm 
+depth 0:-7.280113999999999
+in max=> maxeval:-7.280113999999999,best_move:hmmmmmmmmmmm 
+depth 0:-7.280113999999999
+in max=> maxeval:-7.280113999999999,best_move:hmmmmmmmmmmm 
+depth 0:-6.5421819999999995
+in max=> maxeval:-6.5421819999999995,best_move:hmmmmmmmmmmm 
+depth 0:-4.84542
+in max=> maxeval:-4.84542,best_move:hmmmmmmmmmmm 
+depth 0:-3.148658
+in max=> maxeval:-3.148658,best_move:hmmmmmmmmmmm 
+depth 0:-2.3185920000000007
+in max=> maxeval:-2.3185920000000007,best_move:hmmmmmmmmmmm 
+depth 0:-6.6401140000000005
+in max=> maxeval:-6.6401140000000005,best_move:hnnmmmmmmmmmmm 
+depth 0:-7.378046
+in max=> maxeval:-7.378046,best_move:hnnmmmmmmmmmmm 
+depth 0:-7.378046
+in max=> maxeval:-7.378046,best_move:hnnmmmmmmmmmmm 
+depth 0:-7.378046
+in max=> maxeval:-7.378046,best_move:hnnmmmmmmmmmmm 
+depth 0:-7.378046
+in max=> maxeval:-7.378046,best_move:hnnmmmmmmmmmmm 
+depth 0:-7.378046
+in max=> maxeval:-7.378046,best_move:hnnmmmmmmmmmmm 
+depth 0:-7.378046
+in max=> maxeval:-7.378046,best_move:hnnmmmmmmmmmmm 
+depth 0:-7.378046
+in max=> maxeval:-7.378046,best_move:hnnmmmmmmmmmmm 
+depth 0:-7.378046
+in max=> maxeval:-7.378046,best_move:hnnmmmmmmmmmmm 
+depth 0:-7.378046
+in max=> maxeval:-7.378046,best_move:hnnmmmmmmmmmmm 
+depth 0:-6.6401140000000005
+in max=> maxeval:-6.6401140000000005,best_move:hnnmmmmmmmmmmm 
+depth 0:-4.943352
+in max=> maxeval:-4.943352,best_move:hnnmmmmmmmmmmm 
+depth 0:-3.234254000000001
+in max=> maxeval:-3.234254000000001,best_move:hnnmmmmmmmmmmm 
+depth 0:-2.3552220000000004
+in max=> maxeval:-2.3552220000000004,best_move:hnnmmmmmmmmmmm 
+depth 0:-7.962326999999999
+in max=> maxeval:-7.962326999999999,best_move:hnnmmmmmmmmmmm 
+depth 0:-8.146809999999999
+in max=> maxeval:-8.146809999999999,best_move:hnnmmmmmmmmmmm 
+depth 0:-8.146809999999999
+in max=> maxeval:-8.146809999999999,best_move:hnnmmmmmmmmmmm 
+depth 0:-8.146809999999999
+in max=> maxeval:-8.146809999999999,best_move:hnnmmmmmmmmmmm 
+depth 0:-8.146809999999999
+in max=> maxeval:-8.146809999999999,best_move:hnnmmmmmmmmmmm 
+depth 0:-8.146809999999999
+in max=> maxeval:-8.146809999999999,best_move:hnnmmmmmmmmmmm 
+depth 0:-8.146809999999999
+in max=> maxeval:-8.146809999999999,best_move:hnnmmmmmmmmmmm 
+depth 0:-8.146809999999999
+in max=> maxeval:-8.146809999999999,best_move:hnnmmmmmmmmmmm 
+depth 0:-7.408877999999999
+in max=> maxeval:-7.408877999999999,best_move:hnnmmmmmmmmmmm 
+depth 0:-5.712116
+in max=> maxeval:-5.712116,best_move:hnnmmmmmmmmmmm 
+depth 0:-4.015353999999999
+in max=> maxeval:-4.015353999999999,best_move:hnnmmmmmmmmmmm 
+depth 0:-2.3185920000000007
+in max=> maxeval:-2.3185920000000007,best_move:hnnmmmmmmmmmmm 
+depth 0:-7.50681
+in max=> maxeval:-7.50681,best_move:nmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:nmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:nmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:nmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:nmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:nmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:nmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:nmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:nmmmmmmmmmmm 
+depth 0:-8.244741999999999
+in max=> maxeval:-8.244741999999999,best_move:nmmmmmmmmmmm 
+depth 0:-7.50681
+in max=> maxeval:-7.50681,best_move:nmmmmmmmmmmm 
+depth 0:-5.441082000000001
+in max=> maxeval:-5.441082000000001,best_move:nmmmmmmmmmmm 
+depth 0:-3.234254000000001
+in max=> maxeval:-3.234254000000001,best_move:nmmmmmmmmmmm 
+depth 0:-2.3552220000000004
+in max=> maxeval:-2.3552220000000004,best_move:nmmmmmmmmmmm 
+depth 0:-7.095631
+in max=> maxeval:-7.095631,best_move:nmmmmmmmmmmm 
+depth 0:-7.280113999999999
+in max=> maxeval:-7.280113999999999,best_move:nmmmmmmmmmmm 
+depth 0:-7.280113999999999
+in max=> maxeval:-7.280113999999999,best_move:nmmmmmmmmmmm 
+depth 0:-7.280113999999999
+in max=> maxeval:-7.280113999999999,best_move:nmmmmmmmmmmm 
+depth 0:-7.280113999999999
+in max=> maxeval:-7.280113999999999,best_move:nmmmmmmmmmmm 
+depth 0:-7.280113999999999
+in max=> maxeval:-7.280113999999999,best_move:nmmmmmmmmmmm 
+depth 0:-7.280113999999999
+in max=> maxeval:-7.280113999999999,best_move:nmmmmmmmmmmm 
+depth 0:-7.280113999999999
+in max=> maxeval:-7.280113999999999,best_move:nmmmmmmmmmmm 
+depth 0:-6.5421819999999995
+in max=> maxeval:-6.5421819999999995,best_move:nmmmmmmmmmmm 
+depth 0:-4.84542
+in max=> maxeval:-4.84542,best_move:nmmmmmmmmmmm 
+depth 0:-3.148658
+in max=> maxeval:-3.148658,best_move:nmmmmmmmmmmm 
+depth 0:-2.3185920000000007
+in max=> maxeval:-2.3185920000000007,best_move:nmmmmmmmmmmm 
+in max=> maxeval:-2.0592878333333338,best_move:nnnmmmmmmmmmmm 
+in max=> maxeval:-1.4368043333333333,best_move:nnnmmmmmmmmmmm 
+max_eval:-1.4368043333333333, best_move: mm
 Next piece:
-xxxxx
+xx
+ x
+xx
 
 
 
 Score: 0 
-    xxxx       |
-       x       |
+           x   |
+           x   |
+          xx   |
+           x   |
                |
                |
                |
@@ -24,11 +1006,9 @@ Score: 0
                |
                |
                |
-               |
-               |
-               |
-               |
-               |
+        x      |
+       xxx     |
+        x      |
 ---------------
 Type a sequence of moves using: 
   b for move left 
@@ -37,74 +1017,3 @@ Type a sequence of moves using:
   h for horizontal flip
 Then press enter. E.g.: bbbnn
 
- printing board before the  moves
-board before placing: ['               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ']
-board after placing: ['xxxxx          ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ']
-Next piece:
-xxxxx
-
-
-
-Score: 0 
-xxxxx          |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-   xxxx        |
-      x        |
----------------
-next's successor generation..
-board before placing: ['               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ']
-board after placing: ['xxxxx          ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ']
-Next piece:
-xxxxx
-
-
-
-Score: 0 
-xxxxx          |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-               |
-  xxxx         |
-     x         |
----------------
-next's successor generation..

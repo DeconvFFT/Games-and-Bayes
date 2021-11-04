@@ -557,7 +557,7 @@ def heuristic(qunitris):
    # print(f'empty_cols: {empty_cols}')
 
     # row_transitions, col_transitions,
-    return -0.510066*total_col_height+ 0.760666*total_lines_cleared+ -0.35663*total_holes+ 0.32*empty_cols-0.184483*wavyness
+    return -0.510066*total_col_height+ 0.760666*total_lines_cleared+ -0.35663*total_holes-0.184483*wavyness
 
 #####
 # This is the part you'll want to modify!
