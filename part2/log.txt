@@ -1,0 +1,110 @@
+Next piece:
+xxxxx
+
+
+
+Score: 0 
+    xxxx       |
+       x       |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+---------------
+Type a sequence of moves using: 
+  b for move left 
+  m for move right 
+  n for rotation
+  h for horizontal flip
+Then press enter. E.g.: bbbnn
+
+ printing board before the  moves
+board before placing: ['               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ']
+board after placing: ['xxxxx          ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ']
+Next piece:
+xxxxx
+
+
+
+Score: 0 
+xxxxx          |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+   xxxx        |
+      x        |
+---------------
+next's successor generation..
+board before placing: ['               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ']
+board after placing: ['xxxxx          ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '               ']
+Next piece:
+xxxxx
+
+
+
+Score: 0 
+xxxxx          |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+               |
+  xxxx         |
+     x         |
+---------------
+next's successor generation..
