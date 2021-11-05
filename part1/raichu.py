@@ -630,7 +630,7 @@ if __name__ == "__main__":
         raise Exception("Bad board string.")
 
     print("Searching for best move for " + player + " from board state: \n" + board_to_string(board, N))
-    print("Timelimit : ",timelimit)
+    # print("Timelimit : ",timelimit)
     print("Here's what I decided:")
     board = [board[i:i + N] for i in range(0, len(board), N)]
     for new_board in find_best_move(board, N, player, timelimit):
