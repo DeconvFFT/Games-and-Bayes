@@ -1,5 +1,6 @@
 # Simple quintris program! v0.2
 # D. Crandall, Sept 2021
+# SUBMITTED BY: mehtasau mehtasau@iu.edu 
 
 from AnimatedQuintris import *
 from SimpleQuintris import *
@@ -491,6 +492,10 @@ def expectimax(quintris, depth, player,best_move, game_depth = 5):
 
 # Expectimax with a depth of only 3. 
 # considers only the current node and it's successors and the next node and it's successors.
+# Max nodes at depth d followed by chance nodes at depth d-1
+# @param: depth: Depth at which we call expectimax
+# @param: best_move: Move from quintris to it's successor with maximum evaluation.
+# @param: game_depth: Depth of the game tree. 
 
 def expectimax_small(quintris, depth, player,best_move, game_depth):
      
@@ -522,13 +527,19 @@ def expectimax_small(quintris, depth, player,best_move, game_depth):
                 placement_col_list.append(col)
         placement_col = random.choice(placement_col_list)
         quintris1.piece = quintris.get_next_piece()
-        #print(f'placement_col:{placement_col}')
         quintris1.row = 0
         quintris1.col = placement_col
         maxeval, best_move = expectimax_small(quintris1, depth-1,"max", best_move,game_depth)
         Ex = 1*maxeval
         return Ex, best_move
         
+# Expectimax with a depth of only 3. 
+# considers only the current node and it's successors and the next node and it's successors.
+# Max nodes at depth d followed by chance nodes at depth d-1
+# @param: depth: Depth at which we call expectimax
+# @param: best_move: Move from quintris to it's successor with maximum evaluation.
+# @param: game_depth: Depth of the game tree.
+# @param:tmp_quintris: Temporary copy of AnimatedQuintris()
 
 def expectimax_small_animated(quintris,tmp_quintris, depth, player,best_move, game_depth):
      
@@ -560,13 +571,17 @@ def expectimax_small_animated(quintris,tmp_quintris, depth, player,best_move, ga
                 placement_col_list.append(col)
         placement_col = random.choice(placement_col_list)
         quintris1.piece = quintris.get_next_piece()
-        #print(f'placement_col:{placement_col}')
         quintris1.row = 0
         quintris1.col = placement_col
         maxeval, best_move = expectimax_small_animated(quintris1,tmp_quintris, depth-1,"max", best_move,game_depth)
         Ex = 1*maxeval
         return Ex, best_move
 
+
+
+# Converts the board into numpy array
+# Takes a board as input and returns a 2d array of the board.
+# @param: board: board of the quintris
 def convert_board(board):
     a = np.empty((25, 15), dtype='U1')
     for r in range(len(board)):
@@ -578,10 +593,12 @@ def convert_board(board):
 
 
 
-# get column heights:
+# Get column heights from the board
+# Generates a dictionary with key as column and value as it's height
+# @param: board: board of the quintris
+
 def get_col_heights(board):
     # initializing col heights
-    #board_array = convert_board(board)
     col_heights = {}  
     
     for col in range(len(board[0])):
@@ -606,9 +623,12 @@ def get_col_heights(board):
     return np.array([h for h in col_heights.values()])
 
 
-# get column holes
+# Get total number of holes by on the board 
+# Accepts board and list of column heights as input and returns a list of number of holes per column
+# @param: board: board of the quintris
+# @param: col_heights: List of column heights
+
 def get_col_holes(board, col_heights):
-    # initializing col heights
     board_array = convert_board(board)
     col_holes = []  
     for c in range(board_array.shape[1]):
@@ -619,7 +639,10 @@ def get_col_holes(board, col_heights):
             col_holes.append(np.count_nonzero(board_array[i:, c] !="x"))
     return col_holes
 
-# get total number of lines cleared
+# Get total number of lines cleared
+# Accepts board as input and returns a list of number of lines completed
+# @param: board: board of the quintris
+
 def get_lines_cleared(board):
     #board = convert_board(board)
     # code referenced from : QunitrisGame.py
@@ -657,8 +680,9 @@ def get_row_transitions(board, max_col_height):
                 total+=1
     return total
 
-# it is how smoooth the tetris board is
-# It measures the difference between consecutive column heights in the board
+# Returns how smooth the board is
+# Accepts column heights as input and returns the difference between consecutive column heights in the board
+# @param: col_heights: List of column heights
 def get_wavyness(col_heights):
     bump =0
     for i in range(len(col_heights)-1):
@@ -666,14 +690,21 @@ def get_wavyness(col_heights):
     return bump        
 
 
-## checks how many empty columns are available in the board
+#checks how many empty columns are available in the board
+# Accepts board as input and returns the number of empty columns on the board
+# @param: board: board of quintris
 def get_empty_cols(board):
     board = convert_board(board)
     empty_cols = np.count_nonzero(np.count_nonzero(board == "x", axis=0) ==0)
     return empty_cols
 
-def evaluate():
-    pass
+
+# Evaluation function
+# Accepts board as input and returns the evaluation of that board
+# Heuristic is weighted sum of 1.) Total column height 2.) Total holes on the board 3.) Total lines cleared
+# 4.) Wavyness of the board. 5.) Number of empty columns
+# We want to minimise Total column height, total holes on board, number of empty columns and wavyness of the board.
+# We want to maximise the total number of rows cleared.
 
 def heuristic(board):
 
@@ -682,33 +713,25 @@ def heuristic(board):
     # column heights
 
     col_heights = get_col_heights(board)
-    #print(f'col heights: {col_heights}')
     max_height = np.max(col_heights)
-    #print(f'max height: {max_height}')
-    
+
     # total column height
     total_col_height = np.sum(col_heights)
-    #print(f'total_col_height: {total_col_height}')
 
     # get holes by column
     col_holes = get_col_holes(board, col_heights)
 
     total_holes = np.sum(col_holes)
-    #print(f'total_holes: {total_holes}')
 
     ## get board wavyness
     wavyness = get_wavyness(col_heights)
-    #print(f'wavyness: {wavyness}')
 
     total_lines_cleared = get_lines_cleared(board)
 
 
     # Not using row transitions and column transitions
     # row_transitions = get_row_transitions(qunitris.get_board(), max_height)
-    # #print(f'row_transitions: {row_transitions}')
-
     # col_transitions = get_column_transitions(qunitris.get_board(), col_heights)
-    #print(f'col_transitions: {col_transitions}')
 
     empty_cols = get_empty_cols(board)
     return -100* total_col_height + 500* total_lines_cleared -10* empty_cols -50*total_holes -20 * wavyness
@@ -729,12 +752,12 @@ class ComputerPlayer:
     #   - quintris.get_board() returns the current state of the board, as a list of strings.
     #
     def get_moves(self, quintris):
-        # super simple current algorithm: just randomly move left, right, and rotate a few times       
+        # super simple current algorithm: just randomly move left, right, and rotate a few times  
+        # 
+        #Returning best move obtained for quintris from expectimax     
         best_move = {}
         previous_piece = str(quintris.get_piece()[0])
         max_eval, best_move = expectimax_small(quintris, 3, "max",best_move, 3)
-        # print(f'max_eval:{max_eval}, best_move: {best_move[str(previous_piece)]}')    
-
         return best_move[str(previous_piece)]
        
     # This is the version that's used by the animted version. This is really similar to get_moves,
@@ -752,16 +775,8 @@ class ComputerPlayer:
         while 1:
             time.sleep(0.1)
 
-            # board = quintris.get_board()
-            # column_heights = [ min([ r for r in range(len(board)-1, 0, -1) if board[r][c] == "x"  ] + [100,] ) for c in range(0, len(board[0]) ) ]
-            # index = column_heights.index(max(column_heights))
-
-            # if(index < quintris.col):
-            #     quintris.left()
-            # elif(index > quintris.col):
-            #     quintris.right()
-            # else:
-            #     quintris.down()
+            #Returning best moves for the quintris using expectimax
+            #Also added quintris.down() after we exhaust our move to immediately place the tile in it's correct position.
             tmp_quintris = AnimatedQuintris()
             succ  = generate_successors2_animated(quintris, tmp_quintris)
             
@@ -775,7 +790,6 @@ class ComputerPlayer:
                 if i == len(moves):
                     quintris.down()
                 else:
-                    #print(f'move: {m}')
                     commands[moves[i]]()
 
 
