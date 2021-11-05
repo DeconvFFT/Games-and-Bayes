@@ -91,7 +91,12 @@ def reset_qunitris(qunitris, state, piece, row, col):
     qunitris.col = col
 
 
-# Generates successors 
+# Generates successors for the current quintris
+# Function takes quintris as input and generates a list of successors containing successor, move string and heuristic
+# Reset quintris function called here, resets the quintris with it's original configuration
+# 3 ways to generate successors: 0 : Only move piece left and right, 1: move piece left and right along with 1 flip and rotation
+# 3: Rotate piece 3 times along with flip and left and right movement.
+
 def generate_successors2(quintris):
         total_moves = [0,1,2]
         store_piece = quintris.piece
@@ -101,7 +106,7 @@ def generate_successors2(quintris):
         succ=[]
         move=''
 
-        # Discussed logic of count from total moves, with Madhav Jariwala: makejari@iu.edu 
+        # Discussed logic of count from total_moves, with Madhav Jariwala: makejari@iu.edu 
         # count  = 0 means you can only move a piece left and right
         # count = 1 means you can flip and rotate a piece once
         # count = 2 means you can rotate a piece 3 times
@@ -259,6 +264,11 @@ def generate_successors2(quintris):
         reset_qunitris(quintris, store_state,store_piece,store_row,store_col)
         return succ
 
+# Generates successors for the current quintris
+# Function takes quintris as input and generates a list of successors containing successor, move string and heuristic
+# Reset quintris function called here, resets the quintris with it's original configuration
+# 3 ways to generate successors: 0 : Only move piece left and right, 1: move piece left and right along with 1 flip and rotation
+# 3: Rotate piece 3 times along with flip and left and right movement.
 
 def generate_successors2_animated(quintris, tmp_quintris):
         total_moves = [0,1,2]
@@ -421,16 +431,20 @@ def generate_successors2_animated(quintris, tmp_quintris):
         reset_qunitris(tmp_quintris, store_state,store_piece,store_row,store_col)
         return succ
 
+# Expectimax logic
+# Max nodes at depth d followed by chance nodes at depth d-1
+# Two kinds of chance nodes: 1.) Successors of current node. 2.) Successors of next node.
+# For 1.), Probability of pieces = 1. Since we already know the next piece.
+# For 2.), Probability is 1/6 since there are 6 different pieces to choose from 
+# @param: depth: Depth at which we call expectimax
+# @param: best_move: Move from quintris to it's successor with maximum evaluation.
+# @param: game_depth: Depth of the game tree. 
 def expectimax(quintris, depth, player,best_move, game_depth = 5):
     previous_piece = str(quintris.get_piece()[0])
 
-    # print(f'board: {quintris.state}')
-    # print(f'bestmove: {best_move}')
-    # print(f'depth: {depth}')
     if depth ==0: #or terminal(quintris):
         h = heuristic(quintris.get_board())
-        #print(f'depth 0:{h}' )
-        #quintris.print_board(False)
+        
         return h, best_move
     if player == "max":
         max_eval = -np.Infinity
@@ -461,7 +475,6 @@ def expectimax(quintris, depth, player,best_move, game_depth = 5):
             quintris1.row = 0
             quintris1.col = 0
             maxeval, best_move = expectimax(quintris1, depth-1,"max", best_move,5)
-            #quintris1.print_board(False)
             Ex = 1*maxeval
             return Ex, best_move
         else:
@@ -698,7 +711,7 @@ def heuristic(board):
     #print(f'col_transitions: {col_transitions}')
 
     empty_cols = get_empty_cols(board)
-    return -100* total_col_height + 500* total_lines_cleared -10* empty_cols -50*total_holes -30 * wavyness
+    return -100* total_col_height + 500* total_lines_cleared -10* empty_cols -50*total_holes -20 * wavyness
 
 #####
 # This is the part you'll want to modify!
