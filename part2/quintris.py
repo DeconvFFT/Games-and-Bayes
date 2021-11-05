@@ -1,7 +1,7 @@
 # Simple quintris program! v0.2
+# Submitted by: Saumya Hetalbhai Mehta, mehtasau
 # D. Crandall, Sept 2021
-# SUBMITTED BY: mehtasau mehtasau@iu.edu 
-
+# 
 from AnimatedQuintris import *
 from SimpleQuintris import *
 from kbinput import *
@@ -757,7 +757,10 @@ class ComputerPlayer:
         #Returning best move obtained for quintris from expectimax     
         best_move = {}
         previous_piece = str(quintris.get_piece()[0])
+        
+        
         max_eval, best_move = expectimax_small(quintris, 3, "max",best_move, 3)
+        #max_eval, best_move = expectimax(quintris, 5, "max",best_move, 5)
         return best_move[str(previous_piece)]
        
     # This is the version that's used by the animted version. This is really similar to get_moves,
