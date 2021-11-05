@@ -105,47 +105,9 @@ def generate_successors2(quintris):
         # count  = 0 means you can only move a piece left and right
         # count = 1 means you can flip and rotate a piece once
         # count = 2 means you can rotate a piece 3 times
-         
-        for count in range(len(total_moves)):
-            if count==0:
-                for j in range(store_col,len(quintris.state[0][0])-len(max(quintris.piece))+1):
-                    if j!=store_col:
-                        quintris.right()
-                        move+='m'
-                    move_piece_down(quintris)
-                    board, score = quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)
-                    h = heuristic(board)
-                    quintris1 = deepcopy(quintris)
-                    quintris1.state = board, score   
-                   
-                    succ.append((quintris1,move,h ))
-                    quintris.row = store_row
-                
-                reset_qunitris(quintris, store_state,quintris.piece,store_row,store_col)
-                move=''
-                for j in range(0,store_col):
-                    quintris.left()
-                    move+='b'
-                    move_piece_down(quintris)
-                    try:
-                        board, score = quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)
-                        h = heuristic(board)
-                        quintris1 = deepcopy(quintris)
-                        quintris1.state = board, score   
-                    
-                        succ.append((quintris1,move,h ))
-                    
-                        quintris.row = store_row
-                    except Exception:
-                        print(f'quintris col: {quintris.col}')
-            
-            reset_qunitris(quintris, store_state,quintris.piece,store_row,store_col)
-
-            if count==1:
-                quintris.hflip()
-                if quintris.piece != store_piece:
-                    move = ''
-                    move+='h'
+        try: 
+            for count in range(len(total_moves)):
+                if count==0:
                     for j in range(store_col,len(quintris.state[0][0])-len(max(quintris.piece))+1):
                         if j!=store_col:
                             quintris.right()
@@ -157,30 +119,113 @@ def generate_successors2(quintris):
                         quintris1.state = board, score   
                     
                         succ.append((quintris1,move,h ))
-                       
-                        quintris.row = store_row 
+                        quintris.row = store_row
+                    
                     reset_qunitris(quintris, store_state,quintris.piece,store_row,store_col)
-
-                    move = ''
-                    move+='h'
+                    move=''
                     for j in range(0,store_col):
                         quintris.left()
                         move+='b'
                         move_piece_down(quintris)
-                        board, score = quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)
-                        h = heuristic(board)
-                        quintris1 = deepcopy(quintris)
-                        quintris1.state = board, score   
-                      
-                        succ.append((quintris1,move,h ))
-                        quintris.row = store_row
+                        try:
+                            board, score = quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)
+                            h = heuristic(board)
+                            quintris1 = deepcopy(quintris)
+                            quintris1.state = board, score   
+                        
+                            succ.append((quintris1,move,h ))
+                        
+                            quintris.row = store_row
+                        except Exception:
+                            print(f'quintris col: {quintris.col}')
                 
-                    for i in range(3):
+                reset_qunitris(quintris, store_state,quintris.piece,store_row,store_col)
+
+                if count==1:
+                    quintris.hflip()
+                    if quintris.piece != store_piece:
+                        move = ''
+                        move+='h'
+                        for j in range(store_col,len(quintris.state[0][0])-len(max(quintris.piece))+1):
+                            if j!=store_col:
+                                quintris.right()
+                                move+='m'
+                            move_piece_down(quintris)
+                            board, score = quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)
+                            h = heuristic(board)
+                            quintris1 = deepcopy(quintris)
+                            quintris1.state = board, score   
+                        
+                            succ.append((quintris1,move,h ))
+                        
+                            quintris.row = store_row 
                         reset_qunitris(quintris, store_state,quintris.piece,store_row,store_col)
 
                         move = ''
-                        move += 'h'
+                        move+='h'
+                        for j in range(0,store_col):
+                            quintris.left()
+                            move+='b'
+                            move_piece_down(quintris)
+                            board, score = quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)
+                            h = heuristic(board)
+                            quintris1 = deepcopy(quintris)
+                            quintris1.state = board, score   
+                        
+                            succ.append((quintris1,move,h ))
+                            quintris.row = store_row
+                    
+                        for i in range(3):
+                            reset_qunitris(quintris, store_state,quintris.piece,store_row,store_col)
+
+                            move = ''
+                            move += 'h'
+                            quintris.rotate()
+                            move += (i+1)*'n'
+
+                            for j in range(store_col,len(quintris.state[0][0])-len(max(quintris.piece))+1):
+                                if j!=store_col:
+                                    quintris.right()
+                                    move+='m'
+                                move_piece_down(quintris) 
+                                board, score = quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)
+                                h = heuristic(board)
+                                quintris1 = deepcopy(quintris)
+                                quintris1.state = board, score   
+                                
+                                succ.append((quintris1,move,h ))
+                                quintris.row = store_row
+                        
+                            reset_qunitris(quintris, store_state,quintris.piece,store_row,store_col)
+                            move = ''
+                            move+='h'
+                            move += (i+1)*'n'
+                            for j in range(0,store_col):
+                                quintris.left()
+                                move+='b'
+                                move_piece_down(quintris)
+                                try:
+                                    board, score = quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)
+                                    h = heuristic(board)
+                                    quintris1 = deepcopy(quintris)
+                                    quintris1.state = board, score   
+                                    
+                                    succ.append((quintris1,move,h ))
+                                    
+                                    quintris.row = store_row
+                                except Exception:
+                                    print(f'quintris col inside flip: {quintris.col}')
+                                    
+                
+                reset_qunitris(quintris, store_state,store_piece,store_row,store_col)
+
+                if count==2:
+                    for i in range(3):
+                        reset_qunitris(quintris, store_state,quintris.piece,store_row,store_col)  
+                        move = ''
                         quintris.rotate()
+                        if quintris.piece == store_piece:
+                            break
                         move += (i+1)*'n'
 
                         for j in range(store_col,len(quintris.state[0][0])-len(max(quintris.piece))+1):
@@ -192,69 +237,25 @@ def generate_successors2(quintris):
                             h = heuristic(board)
                             quintris1 = deepcopy(quintris)
                             quintris1.state = board, score   
-                            
                             succ.append((quintris1,move,h ))
                             quintris.row = store_row
                     
                         reset_qunitris(quintris, store_state,quintris.piece,store_row,store_col)
                         move = ''
-                        move+='h'
                         move += (i+1)*'n'
+
                         for j in range(0,store_col):
                             quintris.left()
                             move+='b'
-                            move_piece_down(quintris)
-                            try:
-                                board, score = quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)
-                                h = heuristic(board)
-                                quintris1 = deepcopy(quintris)
-                                quintris1.state = board, score   
-                                
-                                succ.append((quintris1,move,h ))
-                                
-                                quintris.row = store_row
-                            except Exception:
-                                print(f'quintris col inside flip: {quintris.col}')
-                                
-            
-            reset_qunitris(quintris, store_state,store_piece,store_row,store_col)
-
-            if count==2:
-                for i in range(3):
-                    reset_qunitris(quintris, store_state,quintris.piece,store_row,store_col)  
-                    move = ''
-                    quintris.rotate()
-                    if quintris.piece == store_piece:
-                        break
-                    move += (i+1)*'n'
-
-                    for j in range(store_col,len(quintris.state[0][0])-len(max(quintris.piece))+1):
-                        if j!=store_col:
-                            quintris.right()
-                            move+='m'
-                        move_piece_down(quintris) 
-                        board, score = quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)
-                        h = heuristic(board)
-                        quintris1 = deepcopy(quintris)
-                        quintris1.state = board, score   
-                        succ.append((quintris1,move,h ))
-                        quintris.row = store_row
-                
-                    reset_qunitris(quintris, store_state,quintris.piece,store_row,store_col)
-                    move = ''
-                    move += (i+1)*'n'
-
-                    for j in range(0,store_col):
-                        quintris.left()
-                        move+='b'
-                        move_piece_down(quintris) 
-                        board, score = quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)
-                        h = heuristic(board)
-                        quintris1 = deepcopy(quintris)
-                        quintris1.state = board, score   
-                        succ.append((quintris1,move,h ))
-                        quintris.row = store_row
-        
+                            move_piece_down(quintris) 
+                            board, score = quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)
+                            h = heuristic(board)
+                            quintris1 = deepcopy(quintris)
+                            quintris1.state = board, score   
+                            succ.append((quintris1,move,h ))
+                            quintris.row = store_row
+        except Exception:
+            print(f'col: {quintris.col}')
         reset_qunitris(quintris, store_state,store_piece,store_row,store_col)
         return succ
 
