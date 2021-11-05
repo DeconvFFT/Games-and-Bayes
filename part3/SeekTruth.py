@@ -44,17 +44,19 @@ def pre_processing(data):
 # Do not change the return type or parameters of this function!
 #
 def classifier(train_data, test_data):
-    # This is just dummy code -- put yours here!
-    truthful_words = {}
-    deceptive_words = {}
-    truthful_words_count = 0
+    
+    truthful_words = {} # This is a dictionry that will have words as a key and the value would be the number of occurence of that word in truthful sentences
+    deceptive_words = {} # This is a dictionry that will have words as a key and the value would be the number of occurence of that word in deceptive sentences
+    truthful_words_count = 0 
     deceptive_words_count = 0
     truthful_sentences_count = 0
     deceptive_sentences_count = 0
-    train_data = pre_processing(train_data)
-    test_data = pre_processing(test_data)
+    train_data = pre_processing(train_data) # remove the punctuations from the train dataset
+    test_data = pre_processing(test_data) # remove the punctuations from the test dataset
     all_unique_words = []
-    m = 0.3
+    m = 0.3 # a number to add wih prevent the zero probabilty for a word that is not in the train set
+
+    # start learning from training set
     for sentence in range(len(train_data["objects"])):
         if train_data["labels"][sentence] == train_data["classes"][0]:
             truthful_sentences_count += 1
@@ -77,6 +79,7 @@ def classifier(train_data, test_data):
                 else:
                     deceptive_words[word] = 1
 
+    # start predicting the labels for test set
     predicted_labels = []
     for sentence in test_data["objects"]:
         Prob_of_truthful_given_sentence = math.log(truthful_sentences_count/(truthful_sentences_count + deceptive_sentences_count))
