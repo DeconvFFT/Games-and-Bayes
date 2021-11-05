@@ -553,25 +553,25 @@ def find_best_move(board, N, player, timelimit):
             listOfSuccessors = successors(board, N, player)
             eval = []
             for each_succ in listOfSuccessors:
-                yield ''.join(each_succ)
+                # yield ''.join(each_succ)
                 eval.append(minValue(each_succ, alpha, beta, depth - 1, player))
             result = listOfSuccessors[np.argmax(eval)]
             res = ''.join(result)
             yield res
-            # return ''.join(result)
+            return ''.join(result)
         else:
             if heuristic(board, player, opponent) > 0:
                 print("You have Won!")
                 # print(board)
                 res = ''.join(board)
                 yield res
-                # return board
+                return board
             else:
                 print("You have Lost!")
                 print(board)
                 res = ''.join(board)
                 yield res
-                # return board
+                return board
 
 
 
