@@ -120,11 +120,10 @@ def generate_successors2(quintris):
                             move+='m'
                         move_piece_down(quintris)
                         board, score = quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)
-                        h = heuristic(board)
                         quintris1 = deepcopy(quintris)
                         quintris1.state = board, score   
                     
-                        succ.append((quintris1,move,h ))
+                        succ.append((quintris1,move))
                         quintris.row = store_row
                     
                     reset_qunitris(quintris, store_state,quintris.piece,store_row,store_col)
@@ -135,11 +134,10 @@ def generate_successors2(quintris):
                         move_piece_down(quintris)
                         try:
                             board, score = quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)
-                            h = heuristic(board)
                             quintris1 = deepcopy(quintris)
                             quintris1.state = board, score   
                         
-                            succ.append((quintris1,move,h ))
+                            succ.append((quintris1,move))
                         
                             quintris.row = store_row
                         except Exception:
@@ -158,11 +156,10 @@ def generate_successors2(quintris):
                                 move+='m'
                             move_piece_down(quintris)
                             board, score = quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)
-                            h = heuristic(board)
                             quintris1 = deepcopy(quintris)
                             quintris1.state = board, score   
                         
-                            succ.append((quintris1,move,h ))
+                            succ.append((quintris1,move))
                         
                             quintris.row = store_row 
                         reset_qunitris(quintris, store_state,quintris.piece,store_row,store_col)
@@ -174,11 +171,10 @@ def generate_successors2(quintris):
                             move+='b'
                             move_piece_down(quintris)
                             board, score = quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)
-                            h = heuristic(board)
                             quintris1 = deepcopy(quintris)
                             quintris1.state = board, score   
                         
-                            succ.append((quintris1,move,h ))
+                            succ.append((quintris1,move))
                             quintris.row = store_row
                     
                         for i in range(3):
@@ -195,11 +191,10 @@ def generate_successors2(quintris):
                                     move+='m'
                                 move_piece_down(quintris) 
                                 board, score = quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)
-                                h = heuristic(board)
                                 quintris1 = deepcopy(quintris)
                                 quintris1.state = board, score   
                                 
-                                succ.append((quintris1,move,h ))
+                                succ.append((quintris1,move))
                                 quintris.row = store_row
                         
                             reset_qunitris(quintris, store_state,quintris.piece,store_row,store_col)
@@ -212,11 +207,10 @@ def generate_successors2(quintris):
                                 move_piece_down(quintris)
                                 try:
                                     board, score = quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)
-                                    h = heuristic(board)
                                     quintris1 = deepcopy(quintris)
                                     quintris1.state = board, score   
                                     
-                                    succ.append((quintris1,move,h ))
+                                    succ.append((quintris1,move))
                                     
                                     quintris.row = store_row
                                 except Exception:
@@ -240,10 +234,9 @@ def generate_successors2(quintris):
                                 move+='m'
                             move_piece_down(quintris) 
                             board, score = quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)
-                            h = heuristic(board)
                             quintris1 = deepcopy(quintris)
                             quintris1.state = board, score   
-                            succ.append((quintris1,move,h ))
+                            succ.append((quintris1,move))
                             quintris.row = store_row
                     
                         reset_qunitris(quintris, store_state,quintris.piece,store_row,store_col)
@@ -255,10 +248,9 @@ def generate_successors2(quintris):
                             move+='b'
                             move_piece_down(quintris) 
                             board, score = quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)
-                            h = heuristic(board)
                             quintris1 = deepcopy(quintris)
                             quintris1.state = board, score   
-                            succ.append((quintris1,move,h ))
+                            succ.append((quintris1,move))
                             quintris.row = store_row
         except Exception:
             print(f'col: {quintris.col}')
@@ -294,11 +286,10 @@ def generate_successors2_animated(quintris, tmp_quintris):
                             move+='m'
                         move_piece_down(tmp_quintris)
                         board, score = tmp_quintris.place_piece(*tmp_quintris.state, tmp_quintris.piece, tmp_quintris.row, tmp_quintris.col)
-                        h = heuristic(board)
                         quintris2 = deepcopy(tmp_quintris)
                         quintris2.state = board, score   
                     
-                        succ.append((quintris2,move,h ))
+                        succ.append((quintris2,move))
                         tmp_quintris.row = store_row
                     
                     reset_qunitris(tmp_quintris, store_state,tmp_quintris.piece,store_row,store_col)
@@ -308,11 +299,10 @@ def generate_successors2_animated(quintris, tmp_quintris):
                         move+='b'
                         move_piece_down(tmp_quintris)
                         board, score = tmp_quintris.place_piece(*tmp_quintris.state, tmp_quintris.piece, tmp_quintris.row, tmp_quintris.col)
-                        h = heuristic(board)
                         quintris1 = deepcopy(tmp_quintris)
                         quintris1.state = board, score   
                     
-                        succ.append((quintris1,move,h ))
+                        succ.append((quintris1,move))
                     
                         tmp_quintris.row = store_row
                 
@@ -329,11 +319,10 @@ def generate_successors2_animated(quintris, tmp_quintris):
                                 move+='m'
                             move_piece_down(tmp_quintris)
                             board, score = tmp_quintris.place_piece(*tmp_quintris.state, tmp_quintris.piece, tmp_quintris.row, tmp_quintris.col)
-                            h = heuristic(board)
                             quintris1 = deepcopy(tmp_quintris)
                             quintris1.state = board, score   
                         
-                            succ.append((quintris1,move,h ))
+                            succ.append((quintris1,move))
                         
                             tmp_quintris.row = store_row 
                         reset_qunitris(tmp_quintris, store_state,tmp_quintris.piece,store_row,store_col)
@@ -345,11 +334,10 @@ def generate_successors2_animated(quintris, tmp_quintris):
                             move+='b'
                             move_piece_down(tmp_quintris)
                             board, score = tmp_quintris.place_piece(*tmp_quintris.state, tmp_quintris.piece, tmp_quintris.row, tmp_quintris.col)
-                            h = heuristic(board)
                             quintris1 = deepcopy(tmp_quintris)
                             quintris1.state = board, score   
                         
-                            succ.append((quintris1,move,h ))
+                            succ.append((quintris1,move))
                             tmp_quintris.row = store_row
                     
                         for i in range(3):
@@ -366,11 +354,10 @@ def generate_successors2_animated(quintris, tmp_quintris):
                                     move+='m'
                                 move_piece_down(tmp_quintris) 
                                 board, score = tmp_quintris.place_piece(*tmp_quintris.state, tmp_quintris.piece, tmp_quintris.row, tmp_quintris.col)
-                                h = heuristic(board)
                                 quintris1 = deepcopy(tmp_quintris)
                                 quintris1.state = board, score   
                                 
-                                succ.append((quintris1,move,h ))
+                                succ.append((quintris1,move))
                                 tmp_quintris.row = store_row
                         
                             reset_qunitris(tmp_quintris, store_state,tmp_quintris.piece,store_row,store_col)
@@ -382,11 +369,10 @@ def generate_successors2_animated(quintris, tmp_quintris):
                                 move+='b'
                                 move_piece_down(tmp_quintris)
                                 board, score = tmp_quintris.place_piece(*tmp_quintris.state, tmp_quintris.piece, tmp_quintris.row, tmp_quintris.col)
-                                h = heuristic(board)
                                 quintris1 = deepcopy(tmp_quintris)
                                 quintris1.state = board, score   
                                 
-                                succ.append((quintris1,move,h ))
+                                succ.append((quintris1,move))
                                 
                                 tmp_quintris.row = store_row
                 
@@ -407,10 +393,9 @@ def generate_successors2_animated(quintris, tmp_quintris):
                                 move+='m'
                             move_piece_down(tmp_quintris) 
                             board, score = tmp_quintris.place_piece(*tmp_quintris.state, tmp_quintris.piece, tmp_quintris.row, tmp_quintris.col)
-                            h = heuristic(board)
                             quintris1 = deepcopy(tmp_quintris)
                             quintris1.state = board, score   
-                            succ.append((quintris1,move,h ))
+                            succ.append((quintris1,move))
                             tmp_quintris.row = store_row
                     
                         reset_qunitris(tmp_quintris, store_state,tmp_quintris.piece,store_row,store_col)
@@ -422,10 +407,9 @@ def generate_successors2_animated(quintris, tmp_quintris):
                             move+='b'
                             move_piece_down(tmp_quintris) 
                             board, score = tmp_quintris.place_piece(*tmp_quintris.state, tmp_quintris.piece, tmp_quintris.row, tmp_quintris.col)
-                            h = heuristic(board)
                             quintris1 = deepcopy(tmp_quintris)
                             quintris1.state = board, score   
-                            succ.append((quintris1,move,h ))
+                            succ.append((quintris1,move))
                             tmp_quintris.row = store_row
         except Exception:
             print(f'col: {tmp_quintris.col}')
@@ -781,7 +765,7 @@ class ComputerPlayer:
             #Returning best moves for the quintris using expectimax
             #Also added quintris.down() after we exhaust our move to immediately place the tile in it's correct position.
             tmp_quintris = AnimatedQuintris()
-            succ  = generate_successors2_animated(quintris, tmp_quintris)
+            #succ  = generate_successors2_animated(quintris, tmp_quintris)
             
             best_move = {}
             previous_piece = str(quintris.get_piece()[0])
