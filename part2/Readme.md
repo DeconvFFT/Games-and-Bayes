@@ -1,4 +1,4 @@
-# Par2: Quintris
+# Part2: Quintris
 
 ## Evaluation function: 
     For evaluation function, I have used a weighted sum of 5 different functions. 
