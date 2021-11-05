@@ -2,7 +2,7 @@
 ## Part3 Mahsa
 ### (1) a description of how you formulated each problem; (2) a brief description of how your program works; 
 
-I use the naive bayse and assume that the probabbilty of each word given a lablel are independent from each other. So the parobabilty of the truthful/deceptive given words of the sentence (which we call posterior) is proportional to probabilty of all the words given truthful/deceptive (and we assume that all are independent give label (which is our likelihood) so we can write it as a product of the probabilities of each word given label) times the probabilty of truthful/deceptive. 
+I use the naive bayse and assume that the probabbilty of each word given a lablel are independent from each other. So the parobabilty of the truthful/deceptive given words of the sentence (which we call posterior) is proportional to probabilty of all the words given truthful/deceptive (and we assume that all are independent give label (which is our likelihood) so we can write it as a product of the probabilities of each word given label) times the probabilty of truthful/deceptive. (we are ignoring the denominator P(review_words) in Bayes rule, because it is the same for both labels. ) 
 
 The calculation of the likelihood of different class values involves multiplying a lot of small numbers together. This can lead to an underflow of numerical precision.Therefore I used log for calculation.
 
