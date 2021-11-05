@@ -157,16 +157,6 @@ def pichu_successors(board, N, player, pichu):
         col = pichu_loc[each_pichu][1]
         # move pawn down
         if player == 'w':
-            if onBoard(row + 1, col + 1, N):  # diagonal move right to empty space
-                if not isEnemy(player, currentState, row + 1, col + 1, pichu) \
-                        and not isFriend(player, currentState, row + 1, col + 1):
-                    successor.append(updatePos(currentState, row, col, row + 1, col + 1, pichu, N))
-                    print("pichu: 1")
-            if onBoard(row + 1, col - 1, N):  # diagonal move left to empty space
-                if not isEnemy(player, currentState, row + 1, col - 1, pichu) \
-                        and not isFriend(player, currentState, row + 1, col - 1):
-                    successor.append(updatePos(currentState, row, col, row + 1, col - 1, pichu, N))
-                    print("pichu: 2")
             # move pawn left diagonally by taking opponents pawn
             if onBoard(row + 2, col - 2, N) \
                     and not isEnemy(player, currentState, row + 2, col - 2, pichu) \
@@ -201,18 +191,18 @@ def pichu_successors(board, N, player, pichu):
                 # print(updatePos(currentState, row, col, row + 2, col + 2, pichu, N))
                 # print("The last call state")
                 successor.append(updatePos(currentState, row, col, row + 2, col + 2, pichu, N))
+            if onBoard(row + 1, col + 1, N):  # diagonal move right to empty space
+                if not isEnemy(player, currentState, row + 1, col + 1, pichu) \
+                        and not isFriend(player, currentState, row + 1, col + 1):
+                    successor.append(updatePos(currentState, row, col, row + 1, col + 1, pichu, N))
+                    print("pichu: 1")
+            if onBoard(row + 1, col - 1, N):  # diagonal move left to empty space
+                if not isEnemy(player, currentState, row + 1, col - 1, pichu) \
+                        and not isFriend(player, currentState, row + 1, col - 1):
+                    successor.append(updatePos(currentState, row, col, row + 1, col - 1, pichu, N))
+                    print("pichu: 2")
 
         if player == 'b':
-            if onBoard(row - 1, col + 1, N):  # diagonal move right to empty space
-                if not isEnemy(player, currentState, row - 1, col + 1, pichu) \
-                        and not isFriend(player, currentState, row - 1, col + 1):
-                    successor.append(updatePos(currentState, row, col, row - 1, col + 1, pichu, N))
-                    print("pichu: 1")
-            if onBoard(row - 1, col - 1, N):  # diagonal move left to empty space
-                if not isEnemy(player, currentState, row - 1, col - 1, pichu) \
-                        and not isFriend(player, currentState, row - 1, col - 1):
-                    successor.append(updatePos(currentState, row, col, row - 1, col - 1, pichu, N))
-                    print("pichu : 2")
             # move pawn left diagonally by taking opponents pawn
             if onBoard(row - 2, col - 2, N) \
                     and not isEnemy(player, currentState, row - 2, col - 2, pichu) \
@@ -229,6 +219,16 @@ def pichu_successors(board, N, player, pichu):
                 print("pichu : 4")
                 currentState = take_enemy_pawn(currentState, row - 1, col + 1, N)
                 successor.append(updatePos(currentState, row, col, row - 2, col + 2, pichu, N))
+            if onBoard(row - 1, col + 1, N):  # diagonal move right to empty space
+                if not isEnemy(player, currentState, row - 1, col + 1, pichu) \
+                        and not isFriend(player, currentState, row - 1, col + 1):
+                    successor.append(updatePos(currentState, row, col, row - 1, col + 1, pichu, N))
+                    print("pichu: 1")
+            if onBoard(row - 1, col - 1, N):  # diagonal move left to empty space
+                if not isEnemy(player, currentState, row - 1, col - 1, pichu) \
+                        and not isFriend(player, currentState, row - 1, col - 1):
+                    successor.append(updatePos(currentState, row, col, row - 1, col - 1, pichu, N))
+                    print("pichu : 2")
     print("successor")
     print(successor)
     return successor
@@ -246,37 +246,6 @@ def pikachu_successors(board, N, player, pikachu):
         col = pikachu_loc[each_pikachu][1]
         # move pawn down 1 or 2 squares either forward, left, or right (but not diagonally)
         if player == 'w':
-            if onBoard(row + 1, col, N):  # forward by 1 move
-                if not isEnemy(player, currentState, row + 1, col, pikachu) \
-                        and not isFriend(player, currentState, row + 1, col):
-                    successor.append(updatePos(currentState, row, col, row + 1, col, pikachu, N))
-            if onBoard(row + 2, col, N):  # forward by 2 move
-                if not isEnemy(player, currentState, row + 1, col, pikachu) \
-                        and not isFriend(player, currentState, row + 1, col) \
-                        and not isEnemy(player, currentState, row + 2, col, pikachu) \
-                        and not isFriend(player, currentState, row + 2, col):
-                    successor.append(updatePos(currentState, row, col, row + 2, col, pikachu, N))
-            if onBoard(row, col - 1, N):  # left by 1 move
-                if not isEnemy(player, currentState, row, col - 1, pikachu) \
-                        and not isFriend(player, currentState, row, col - 1):
-                    successor.append(updatePos(currentState, row, col, row, col - 1, pikachu, N))
-            if onBoard(row, col - 2, N):  # left by 2 move
-                if not isEnemy(player, currentState, row, col - 2, pikachu) \
-                        and not isFriend(player, currentState, row, col - 2) \
-                        and not isEnemy(player, currentState, row, col - 1, pikachu) \
-                        and not isFriend(player, currentState, row, col - 1):
-                    successor.append(updatePos(currentState, row, col, row, col - 2, pikachu, N))
-            if onBoard(row, col + 1, N):  # right by 1 move
-                if not isEnemy(player, currentState, row, col + 1, pikachu) \
-                        and not isFriend(player, currentState, row, col + 1):
-                    successor.append(updatePos(currentState, row, col, row, col + 1, pikachu, N))
-            if onBoard(row, col + 2, N):  # right by 2 move
-                if not isEnemy(player, currentState, row, col + 2, pikachu) \
-                        and not isFriend(player, currentState, row, col + 2) \
-                        and not isEnemy(player, currentState, row, col + 1, pikachu) \
-                        and not isFriend(player, currentState, row, col + 1):
-                    successor.append(updatePos(currentState, row, col, row, col + 2, pikachu, N))
-
             # move pawn forward by 2 steps,after taking opponents pawn
             if onBoard(row + 2, col, N):
                 if not isEnemy(player, currentState, row + 2, col, pikachu) \
@@ -332,18 +301,16 @@ def pikachu_successors(board, N, player, pikachu):
                         and not isEnemy(player, currentState, row, col + 1, pikachu):
                     currentState = take_enemy_pawn(currentState, row, col + 2, N)
                     successor.append(updatePos(currentState, row, col, row, col + 3, pikachu, N))
-
-        if player == 'b':
-            if onBoard(row - 1, col, N):  # forward by 1 move
-                if not isEnemy(player, currentState, row - 1, col, pikachu) \
-                        and not isFriend(player, currentState, row - 1, col):
-                    successor.append(updatePos(currentState, row, col, row - 1, col, pikachu, N))
-            if onBoard(row - 2, col, N):  # forward by 2 move
-                if not isEnemy(player, currentState, row - 1, col, pikachu) \
-                        and not isFriend(player, currentState, row - 1, col) \
-                        and not isEnemy(player, currentState, row - 2, col, pikachu) \
-                        and not isFriend(player, currentState, row - 2, col):
-                    successor.append(updatePos(currentState, row, col, row - 2, col, pikachu, N))
+            if onBoard(row + 1, col, N):  # forward by 1 move
+                if not isEnemy(player, currentState, row + 1, col, pikachu) \
+                        and not isFriend(player, currentState, row + 1, col):
+                    successor.append(updatePos(currentState, row, col, row + 1, col, pikachu, N))
+            if onBoard(row + 2, col, N):  # forward by 2 move
+                if not isEnemy(player, currentState, row + 1, col, pikachu) \
+                        and not isFriend(player, currentState, row + 1, col) \
+                        and not isEnemy(player, currentState, row + 2, col, pikachu) \
+                        and not isFriend(player, currentState, row + 2, col):
+                    successor.append(updatePos(currentState, row, col, row + 2, col, pikachu, N))
             if onBoard(row, col - 1, N):  # left by 1 move
                 if not isEnemy(player, currentState, row, col - 1, pikachu) \
                         and not isFriend(player, currentState, row, col - 1):
@@ -365,6 +332,7 @@ def pikachu_successors(board, N, player, pikachu):
                         and not isFriend(player, currentState, row, col + 1):
                     successor.append(updatePos(currentState, row, col, row, col + 2, pikachu, N))
 
+        if player == 'b':
             # move pawn forward by 2 steps,after taking opponents pawn
             if onBoard(row - 2, col, N):
                 if not isEnemy(player, currentState, row - 2, col, pikachu) \
@@ -420,6 +388,36 @@ def pikachu_successors(board, N, player, pikachu):
                         and not isEnemy(player, currentState, row, col + 1, pikachu):
                     currentState = take_enemy_pawn(currentState, row, col + 2, N)
                     successor.append(updatePos(currentState, row, col, row, col + 3, pikachu, N))
+            if onBoard(row - 1, col, N):  # forward by 1 move
+                if not isEnemy(player, currentState, row - 1, col, pikachu) \
+                        and not isFriend(player, currentState, row - 1, col):
+                    successor.append(updatePos(currentState, row, col, row - 1, col, pikachu, N))
+            if onBoard(row - 2, col, N):  # forward by 2 move
+                if not isEnemy(player, currentState, row - 1, col, pikachu) \
+                        and not isFriend(player, currentState, row - 1, col) \
+                        and not isEnemy(player, currentState, row - 2, col, pikachu) \
+                        and not isFriend(player, currentState, row - 2, col):
+                    successor.append(updatePos(currentState, row, col, row - 2, col, pikachu, N))
+            if onBoard(row, col - 1, N):  # left by 1 move
+                if not isEnemy(player, currentState, row, col - 1, pikachu) \
+                        and not isFriend(player, currentState, row, col - 1):
+                    successor.append(updatePos(currentState, row, col, row, col - 1, pikachu, N))
+            if onBoard(row, col - 2, N):  # left by 2 move
+                if not isEnemy(player, currentState, row, col - 2, pikachu) \
+                        and not isFriend(player, currentState, row, col - 2) \
+                        and not isEnemy(player, currentState, row, col - 1, pikachu) \
+                        and not isFriend(player, currentState, row, col - 1):
+                    successor.append(updatePos(currentState, row, col, row, col - 2, pikachu, N))
+            if onBoard(row, col + 1, N):  # right by 1 move
+                if not isEnemy(player, currentState, row, col + 1, pikachu) \
+                        and not isFriend(player, currentState, row, col + 1):
+                    successor.append(updatePos(currentState, row, col, row, col + 1, pikachu, N))
+            if onBoard(row, col + 2, N):  # right by 2 move
+                if not isEnemy(player, currentState, row, col + 2, pikachu) \
+                        and not isFriend(player, currentState, row, col + 2) \
+                        and not isEnemy(player, currentState, row, col + 1, pikachu) \
+                        and not isFriend(player, currentState, row, col + 1):
+                    successor.append(updatePos(currentState, row, col, row, col + 2, pikachu, N))
     return successor
 
 
@@ -534,7 +532,7 @@ def successors(board, N, player):
     next_pikachu_pos = pikachu_successors(currentState, N, player, choose_player_pawns[player][1])
     next_raichu_pos = raichu_successors(currentState, N, player, choose_player_pawns[player][2])
     # print(next_pichu_pos)
-    successors_list = list(itertools.chain(next_pichu_pos, next_pikachu_pos, next_raichu_pos))
+    successors_list = list(itertools.chain(next_raichu_pos, next_pikachu_pos, next_pichu_pos))
     # print("Succ list :", successors_list)
     return successors_list
 
@@ -594,23 +592,25 @@ def find_best_move(board, N, player, timelimit):
     while elapsed < timelimit:
         elapsed = time.time() - start
         listOfSuccessors = successors(board, N, player)
-        successors_evaluation = []
-        depth = 1
-        alpha = -99999
-        beta = 99999
-        print("Successors len initial: ", len(listOfSuccessors))
-        print("first player: ", player)
-        for each_succ in listOfSuccessors:
-            eval = minimax(board, alpha, beta, depth, opponent_player(player))
-            print("each_succ: ")
-            print(each_succ)
-            print("eval :", eval)
-            successors_evaluation.append(eval)
-        print("successors_evaluation : ", len(successors_evaluation))
-        print("successors_evaluation : ", successors_evaluation)
-        result = listOfSuccessors[np.argmax(successors_evaluation)]
-        res = ''.join(result)
-        yield res
+        if len(listOfSuccessors) > 0:
+            successors_evaluation = []
+            depth = 1
+            alpha = -99999
+            beta = 99999
+            print("Successors len initial: ", len(listOfSuccessors))
+            print("first player: ", player)
+            for each_succ in listOfSuccessors:
+                eval = minimax(board, alpha, beta, depth, opponent_player(player))
+                print("each_succ: ")
+                print(each_succ)
+                print("eval :", eval)
+                successors_evaluation.append(eval)
+            print("successors_evaluation : ", len(successors_evaluation))
+            print("successors_evaluation : ", successors_evaluation)
+            result = listOfSuccessors[np.argmax(successors_evaluation)]
+            res = ''.join(result)
+            yield res
+            return res
         return board
 
 
