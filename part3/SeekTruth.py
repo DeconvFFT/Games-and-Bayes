@@ -44,8 +44,8 @@ def pre_processing(data):
 # Do not change the return type or parameters of this function!
 #
 def classifier(train_data, test_data):
-    # This is just dummy code -- put yours here!
-    truthful_words = {}
+    
+    truthful_words = {} 
     deceptive_words = {}
     truthful_words_count = 0
     deceptive_words_count = 0
