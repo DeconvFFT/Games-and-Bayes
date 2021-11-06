@@ -615,7 +615,7 @@ def get_col_heights(board, width, height):
 def get_col_holes(board, col_heights,width, height):
     board_array = convert_board(board)
     col_holes = []  
-    for c in range(height):
+    for c in range(width):
         i = width - col_heights[c]
         if i ==0:
             col_holes.append(0)
