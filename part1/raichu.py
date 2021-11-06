@@ -514,7 +514,7 @@ def find_best_move(board, N, player, timelimit):
         listOfSuccessors = successors(board, N, player)
         if len(listOfSuccessors) > 0:
             successors_evaluation = []
-            depth = 6
+            depth = 5
             alpha = -99999
             beta = 99999
             for each_succ in listOfSuccessors:
