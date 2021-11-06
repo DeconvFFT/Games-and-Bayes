@@ -20,27 +20,10 @@ import numpy as np
 def isEnemy(player, board, x, y, pawn):
     w = ['w', 'W', '@']
     b = ['b', 'B', '$']
-    print("isEnemy: ", board)
     if (player == "w" and board[x][y] in b) or (player == "b" and board[x][y] in w):
         return True
     else:
         return False
-
-    # if pawn == w[0] or pawn == b[0]:
-    #     if (player == "w" and board[x][y] == b[0]) or (player == "b" and board[x][y] == w[0]):
-    #         return True
-    #     else:
-    #         return False
-    # if pawn == w[1] or pawn == b[1]:
-    #     if (player == "w" and board[x][y] == b[1]) or (player == "b" and board[x][y] == w[1]):
-    #         return True
-    #     else:
-    #         return False
-    # if pawn == w[2] or pawn == b[2]:
-    #     if (player == "w" and board[x][y] in b) or (player == "b" and board[x][y] in w):
-    #         return True
-    #     else:
-    #         return False
 
 
 def onBoard(x, y, N):
@@ -60,7 +43,6 @@ def isFriend(player, board, x, y):
 def isCapturable(player, board, x, y, pawn):
     w = ['w', 'W', '@']
     b = ['b', 'B', '$']
-    print("isEnemy: ", board)
     if player == "w":
         if pawn == w[0] and board[x][y] == b[0]:
             return True
@@ -89,9 +71,6 @@ def take_enemy_pawn(board, xPos, yPos, N):
 def replace_pawns(tempState, xPos1, yPos1, char_replace, N):
     # https://stackoverflow.com/questions/14860460/append-several-variables-to-a-list-in-python
     # https://www.geeksforgeeks.org/python-convert-list-of-strings-and-characters-to-list-of-characters/
-    print("replace_pawns")
-    print(tempState, xPos1, yPos1, char_replace, N)
-
     res = [i for ele in tempState for i in ele]
     res = np.reshape(res, (N, N))
     res[xPos1][yPos1] = char_replace
@@ -115,7 +94,6 @@ def replace_pawns(tempState, xPos1, yPos1, char_replace, N):
     }
     temp_list = []
     temp_list += ll.values()
-    print(temp_list, xPos1, yPos1, char_replace, N)
     return temp_list
 
 
@@ -132,25 +110,12 @@ def updatePos(board, xPos1, yPos1, xPos2, yPos2, charToReplace, N):
         if charToReplace in ['b', 'B']:
             # tempState[xPos2][yPos2] = '$'
             tempState = replace_pawns(tempState, xPos2, yPos2, '$', N)
-    # https://stackoverflow.com/questions/952914/making-a-flat-list-out-of-list-of-lists-in-python
-    print("Inside updatePos")
-    print("before")
-    print(board)
-    print("after")
-    print(tempState)
-    # flatList = [col for row in tempState for col in row]
     return tempState
 
 
 def pichu_successors(board, N, player, pichu):
     currentState = board
-    # print(currentState)
-    # currentState = board
-    # print("pichu_successors")
-    # print("Player = ", player)
-    # print(currentState)
     pichu_loc = [(row, col) for col in range(0, N) for row in range(0, N) if board[row][col] == pichu]
-    # print("pichu_loc: ", pichu_loc)
     successor = []
     for each_pichu in range(0, len(pichu_loc), 1):
         row = pichu_loc[each_pichu][0]
@@ -162,45 +127,23 @@ def pichu_successors(board, N, player, pichu):
                     and not isEnemy(player, currentState, row + 2, col - 2, pichu) \
                     and not isFriend(player, currentState, row + 2, col - 2) \
                     and isCapturable(player, currentState, row + 1, col - 1, pichu):
-                print("pichu: 3")
-                print("pichu taking opponents pawn at: ", row + 1, col - 1)
-                print("take_enemy_pawn")
-                print("currentState: ")
-                print(currentState)
                 currentState = take_enemy_pawn(currentState, row + 1, col - 1, N)
-                print("after replacement: ")
-                print(currentState)
-                print("after the update position: ")
-                # print(updatePos(currentState, row, col, row + 2, col - 2, pichu, N))
-                # print("The last call state")
                 successor.append(updatePos(currentState, row, col, row + 2, col - 2, pichu, N))
             # move pawn right diagonally by taking opponents pawn
             if onBoard(row + 2, col + 2, N) \
                     and not isEnemy(player, currentState, row + 2, col + 2, pichu) \
                     and not isFriend(player, currentState, row + 2, col + 2) \
                     and isCapturable(player, currentState, row + 1, col + 1, pichu):
-                print("pichu: 4")
-                print("pichu taking opponents pawn at: ", row + 1, col + 1)
-                print("take_enemy_pawn")
-                print("currentState: ")
-                print(currentState)
                 currentState = take_enemy_pawn(currentState, row + 1, col + 1, N)
-                print("after replacement: ")
-                print(currentState)
-                print("after the update position: ")
-                # print(updatePos(currentState, row, col, row + 2, col + 2, pichu, N))
-                # print("The last call state")
                 successor.append(updatePos(currentState, row, col, row + 2, col + 2, pichu, N))
             if onBoard(row + 1, col + 1, N):  # diagonal move right to empty space
                 if not isEnemy(player, currentState, row + 1, col + 1, pichu) \
                         and not isFriend(player, currentState, row + 1, col + 1):
                     successor.append(updatePos(currentState, row, col, row + 1, col + 1, pichu, N))
-                    print("pichu: 1")
             if onBoard(row + 1, col - 1, N):  # diagonal move left to empty space
                 if not isEnemy(player, currentState, row + 1, col - 1, pichu) \
                         and not isFriend(player, currentState, row + 1, col - 1):
                     successor.append(updatePos(currentState, row, col, row + 1, col - 1, pichu, N))
-                    print("pichu: 2")
 
         if player == 'b':
             # move pawn left diagonally by taking opponents pawn
@@ -208,7 +151,6 @@ def pichu_successors(board, N, player, pichu):
                     and not isEnemy(player, currentState, row - 2, col - 2, pichu) \
                     and not isFriend(player, currentState, row - 2, col - 2) \
                     and isCapturable(player, currentState, row - 1, col - 1, pichu):
-                print("pichu : 3")
                 currentState = take_enemy_pawn(currentState, row - 1, col - 1, N)
                 successor.append(updatePos(currentState, row, col, row - 2, col - 2, pichu, N))
             # move pawn right diagonally by taking opponents pawn
@@ -216,30 +158,22 @@ def pichu_successors(board, N, player, pichu):
                     and not isEnemy(player, currentState, row - 2, col + 2, pichu) \
                     and not isFriend(player, currentState, row - 2, col + 2) \
                     and isCapturable(player, currentState, row - 1, col + 1, pichu):
-                print("pichu : 4")
                 currentState = take_enemy_pawn(currentState, row - 1, col + 1, N)
                 successor.append(updatePos(currentState, row, col, row - 2, col + 2, pichu, N))
             if onBoard(row - 1, col + 1, N):  # diagonal move right to empty space
                 if not isEnemy(player, currentState, row - 1, col + 1, pichu) \
                         and not isFriend(player, currentState, row - 1, col + 1):
                     successor.append(updatePos(currentState, row, col, row - 1, col + 1, pichu, N))
-                    print("pichu: 1")
             if onBoard(row - 1, col - 1, N):  # diagonal move left to empty space
                 if not isEnemy(player, currentState, row - 1, col - 1, pichu) \
                         and not isFriend(player, currentState, row - 1, col - 1):
                     successor.append(updatePos(currentState, row, col, row - 1, col - 1, pichu, N))
-                    print("pichu : 2")
-    print("successor")
-    print(successor)
     return successor
 
 
 def pikachu_successors(board, N, player, pikachu):
     pikachu_loc = [(row, col) for col in range(0, N) for row in range(0, N) if board[row][col] == pikachu]
     currentState = board
-    # print("pikachu_successors")
-    # print(pikachu_loc)
-    # print("Player = ", player)
     successor = []
     for each_pikachu in range(0, len(pikachu_loc), 1):
         row = pikachu_loc[each_pikachu][0]
@@ -424,9 +358,6 @@ def pikachu_successors(board, N, player, pikachu):
 def raichu_successors(board, N, player, raichu):
     currentState = board
     raichu_loc = [(row, col) for col in range(0, N) for row in range(0, N) if board[row][col] == raichu]
-    # print("raichu_successors")
-    # print(raichu_loc)
-    # print("Player = ", player)
     successor = []
     for each_raichu in range(0, len(raichu_loc), 1):
         row = raichu_loc[each_raichu][0]
@@ -523,17 +454,11 @@ def successors(board, N, player):
         'b': ['b', 'B', '$']
     }
     successors_list = []
-    # https://stackoverflow.com/questions/6614891/turning-a-list-into-nested-lists-in-python
-    # currentState = [board[i:i + N] for i in range(0, len(board), N)]
     currentState = board
-    # print("Current state:")
-    # print(currentState)
     next_pichu_pos = pichu_successors(currentState, N, player, choose_player_pawns[player][0])
     next_pikachu_pos = pikachu_successors(currentState, N, player, choose_player_pawns[player][1])
     next_raichu_pos = raichu_successors(currentState, N, player, choose_player_pawns[player][2])
-    # print(next_pichu_pos)
     successors_list = list(itertools.chain(next_raichu_pos, next_pikachu_pos, next_pichu_pos))
-    # print("Succ list :", successors_list)
     return successors_list
 
 
@@ -556,7 +481,6 @@ def board_to_string(board, N):
 
 def isTerminal(board, opponent):
     pawns_count = count_pawns(board, opponent)
-    print("is_terminal :", pawns_count)
     if sum(pawns_count) == 0:
         return True
     else:
@@ -573,14 +497,10 @@ def heuristic(board, player, opponent):
     opponent_pawn = count_pawns(board, opponent)
     player_heuristic = 1 * player_pawn[0] + 3 * player_pawn[1] + 11 * player_pawn[2]
     opponent_heuristic = 1 * opponent_pawn[0] + 3 * opponent_pawn[1] + 11 * opponent_pawn[2]
-    print(player)
-    print(player_pawn, opponent_pawn)
-    print("w: b:  ",player_heuristic, opponent_heuristic)
     if player == 'w':
         h_val = player_heuristic - opponent_heuristic
     else:
         h_val = opponent_heuristic - player_heuristic
-    print("player, hval :", player, h_val)
     return h_val
 
 
@@ -594,19 +514,12 @@ def find_best_move(board, N, player, timelimit):
         listOfSuccessors = successors(board, N, player)
         if len(listOfSuccessors) > 0:
             successors_evaluation = []
-            depth = 1
+            depth = 3
             alpha = -99999
             beta = 99999
-            print("Successors len initial: ", len(listOfSuccessors))
-            print("first player: ", player)
             for each_succ in listOfSuccessors:
                 eval = minimax(board, alpha, beta, depth, opponent_player(player))
-                print("each_succ: ")
-                print(each_succ)
-                print("eval :", eval)
                 successors_evaluation.append(eval)
-            print("successors_evaluation : ", len(successors_evaluation))
-            print("successors_evaluation : ", successors_evaluation)
             result = listOfSuccessors[np.argmax(successors_evaluation)]
             res = ''.join(result)
             yield res
@@ -615,21 +528,12 @@ def find_best_move(board, N, player, timelimit):
 
 
 def minimax(board, alpha, beta, depth, player):
-    print("next player: ", player)
     opponent = opponent_player(player)
-    if depth == 0:
+    if depth == 0 or isTerminal(board, player):
         h_val = heuristic(board, player, opponent)
-        print("final board: ", board)
-        print("h_val :", h_val)
         if h_val > 0:
-            # print("You have Won!")
-            # res = ''.join(board)
-            # print("Length res: ", len(res))
             return h_val
         else:
-            # print("You have Lost!")
-            # res = ''.join(board)
-            # print("Length res: ", len(res))
             return h_val
 
     current_state = copy.deepcopy(board)
@@ -637,27 +541,25 @@ def minimax(board, alpha, beta, depth, player):
         maxEval = -9999
         listOfSuccessors = successors(current_state, N, player)
         for each_succ in listOfSuccessors:
+            print(''.join(each_succ))
             eval = minimax(each_succ, alpha, beta, depth-1, opponent)
-            print("eval for maxplayer : ", eval, maxEval)
             maxEval = max(maxEval, eval)
             alpha = max(alpha, eval)
             if beta <= alpha:
                 break
             res = ''.join(each_succ)
-            print(res)
         return maxEval
     else:
         minEval = 9999
         listOfSuccessors = successors(current_state, N, player)
         for each_succ in listOfSuccessors:
+            print(''.join(each_succ))
             eval = minimax(each_succ, alpha, beta, depth - 1, opponent)
-            print("eval for minplayer : ", eval, minEval)
             minEval = min(minEval, eval)
             beta = min(beta, eval)
             if beta <= alpha:
                 break
             res = ''.join(each_succ)
-            print(res)
         return minEval
 
 
