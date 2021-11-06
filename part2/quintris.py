@@ -570,7 +570,7 @@ def convert_board(board):
     a = np.empty((25, 15), dtype='U1')
     for r in range(25):
         innerl = [" "]* 15
-        for c in range(len(board[0])):
+        for c in range(15):
             innerl[c] = board[r][c]
         a[r] = innerl
     return np.array(a)
