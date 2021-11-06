@@ -485,7 +485,7 @@ def expectimax_small(quintris, depth, player,best_move, game_depth):
      
     previous_piece = str(quintris.get_piece()[0])
     if depth ==0: 
-        h = heuristic(quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)[0])
+        h = heuristic(quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)[0], quintris.BOARD_WIDTH, quintris.BOARD_HEIGHT)
         return h, best_move
 
     if player == "max":
@@ -529,7 +529,7 @@ def expectimax_small_animated(quintris,tmp_quintris, depth, player,best_move, ga
      
     previous_piece = str(quintris.get_piece()[0])
     if depth ==0: 
-        h = heuristic(quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)[0])
+        h = heuristic(quintris.place_piece(*quintris.state, quintris.piece, quintris.row, quintris.col)[0], quintris.BOARD_WIDTH, quintris.BOARD_HEIGHT)
         return h, best_move
 
     if player == "max":
@@ -581,15 +581,15 @@ def convert_board(board):
 # Generates a dictionary with key as column and value as it's height
 # @param: board: board of the quintris
 
-def get_col_heights(board):
+def get_col_heights(board, width, height):
     # initializing col heights
     col_heights = {}  
     
-    for col in range(len(board[0])):
+    for col in range(width):
         zero_count = 0
         min_idx = np.Infinity  
 
-        for row in range(len(board)):
+        for row in range(height):
             
             if board[row][col] == "x":
                 # column height would be nrows-max index at which x is at that column.
@@ -603,7 +603,7 @@ def get_col_heights(board):
                 zero_count+=1
                 if(zero_count == len(board)):
                     col_heights[col] = 0
-            
+       
     return np.array([h for h in col_heights.values()])
 
 
@@ -690,13 +690,13 @@ def get_empty_cols(board):
 # We want to minimise Total column height, total holes on board, number of empty columns and wavyness of the board.
 # We want to maximise the total number of rows cleared.
 
-def heuristic(board):
+def heuristic(board, width, height):
 
     ### Evaluations ###
     # Referred to this article for heuristic functions: https://meatfighter.com/nintendotetrisai/#Java_Version
     # column heights
 
-    col_heights = get_col_heights(board)
+    col_heights = get_col_heights(board, width, height)
     max_height = np.max(col_heights)
 
     # total column height
