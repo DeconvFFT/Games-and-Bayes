@@ -612,11 +612,11 @@ def get_col_heights(board, width, height):
 # @param: board: board of the quintris
 # @param: col_heights: List of column heights
 
-def get_col_holes(board, col_heights):
+def get_col_holes(board, col_heights,width, height):
     board_array = convert_board(board)
     col_holes = []  
-    for c in range(board_array.shape[1]):
-        i = len(board) - col_heights[c]
+    for c in range(height):
+        i = width - col_heights[c]
         if i ==0:
             col_holes.append(0)
         else:
@@ -703,7 +703,7 @@ def heuristic(board, width, height):
     total_col_height = np.sum(col_heights)
 
     # get holes by column
-    col_holes = get_col_holes(board, col_heights)
+    col_holes = get_col_holes(board, col_heights,width, height)
 
     total_holes = np.sum(col_holes)
 
