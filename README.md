@@ -1,5 +1,56 @@
-# a2
-# Part2: Quintris (Saumya)
+# <div align="center"> CS B551 - Assignment 2: Games and Bayesian Classifiers
+#####  <div align="center"> CSCI B551 - Elements of Artificial Intelligence!
+
+<br>
+
+##### Team-member 1: Ganapathy, Anitha (aganapa) <br>
+##### Team-member 2: Mehta, Saumya Hetalbhai (mehtasau) <br>
+##### Team-member 3: Monshizadeh, Mahsa (mmonshiz) <br>
+
+<br>
+
+---
+
+# Part1: Raichu (Anitha)
+
+##### [Raichu] (https://github.iu.edu/cs-b551-fa2021/mmonshiz-aganapa-mehtasau-a2/blob/master/part1)
+
+Raichu is a popular childhood game played on an n x n grid (where n = 8 is an even number) with three kinds of pieces (Pichus, Pikachus, and Raichus) of two different colors (black and white). This game is similar to the game of checkers we all have loved and grown up playing the game.
+
+### AIM
+***To take on as many opponents pawns as possible and get our raichu to play an optimum game.***
+
+## Input
+Initially the board starts empty, except for a row of white Pikachus on the second row of the board, a row of white Pichus on the
+third row of the board, and a row of black Pichus on row n - 2 and a row of black Pikachus on row n - 1:
+
+we assume the White player to be the max player.
+
+## Solution
+
+I have implemented the Minimax algorithm with alpha beta pruning and implemented the the depth level being pre determined.
+
+
+## Evaluation function:
+- I have considered the remaining pawns on the board and assigned the pawn values as pichu = 1, pikachu = 3, raichu = 11.
+- Final evaluation , I have subtracted the scores of ot the players.
+- Positive values means max player has the advantage , negative values means the min players has the advantage.
+
+## Problems faced:
+- I faced a lot of problem in abstraction of the parts of the codes that can be reused for every pawns(pichus, pikachus and raichus)
+- the assignment of which player goes next to calculate the max value for the max player and min value for the min player in the minimax algorithm.
+
+## Experiments
+- I have written an helper code file, which helps me to visualize the old board and new board display in a matrix format.
+- This helped me to see if the move the AI made was a right one and if there was a need to optimize the code.
+
+## References:
+
+- I found this video to be very useful interms of understanding the algorithm and class course work very helpful in implementation.
+- **https://www.youtube.com/watch?v=l-hh51ncgDI&t=573s**
+
+---
+# Part 2: The Game of Quintris (Saumya)
 
 ## Evaluation function: 
     For evaluation function, I have used a weighted sum of 5 different functions. 
@@ -44,8 +95,10 @@ For expectimax, I consider depth as the level at which a node is. So a tree with
 
 ## Experiments: 
     - I experimented with different values for the weights of evaluation function.  What I observed was, if the values were too far apart like 1000000 for total_rows_cleared and -100 for total_holes, the algorithm tends to give out worse moves.  When the values were close, like 500 for total_rows_cleared and -50 for total_holes, the algorithm tends to give better moves. 
-    
-## Part3 Mahsa
+   
+---   
+   
+## Part3: Truth be Told (Mahsa)
 ### (1) a description of how you formulated each problem; (2) a brief description of how your program works; 
 
 I use the naive bayse and assume that the probabbilty of each word given a lablel are independent from each other. So the parobabilty of the truthful/deceptive given words of the sentence (which we call posterior) is proportional to probabilty of all the words given truthful/deceptive (and we assume that all are independent give label (which is our likelihood) so we can write it as a product of the probabilities of each word given label) times the probabilty of truthful/deceptive. (we are ignoring the denominator P(review_words) in Bayes rule, because it is the same for both labels. ) 
