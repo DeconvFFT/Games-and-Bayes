@@ -428,7 +428,7 @@ def expectimax(quintris, depth, player,best_move, game_depth = 5):
     previous_piece = str(quintris.get_piece()[0])
 
     if depth ==0: #or terminal(quintris):
-        h = heuristic(quintris.get_board())
+        h = heuristic(quintris.get_board(), quintris.BOARD_WIDTH, quintris.BOARD_HEIGHT)
         
         return h, best_move
     if player == "max":
