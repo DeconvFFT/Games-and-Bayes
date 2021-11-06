@@ -568,7 +568,7 @@ def expectimax_small_animated(quintris,tmp_quintris, depth, player,best_move, ga
 # @param: board: board of the quintris
 def convert_board(board):
     a = np.empty((25, 15), dtype='U1')
-    for r in range(len(board)):
+    for r in range(25):
         innerl = [" "]* 15
         for c in range(len(board[0])):
             innerl[c] = board[r][c]
